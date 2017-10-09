@@ -1,11 +1,10 @@
-# PlayerMethodResult
+# MMCTicket
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ok** | [**\Swagger\Client\Model\Ok**](Ok.md) |  | [optional] 
-**player** | [**\Swagger\Client\Model\RawResponse**](RawResponse.md) |  | [optional] 
-**result** | [**\Swagger\Client\Model\RawResponse**](RawResponse.md) |  | [optional] 
+**id** | **string** | The id of the crate. | [optional] 
+**timestamp** | **float** | The name of the crate. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

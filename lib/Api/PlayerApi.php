@@ -12,7 +12,7 @@
 /**
  * WebAPI
  *
- * Access Sponge powered Minecraft servers through a WebAPI  #/ Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  #/ Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md)
+ * Access Sponge powered Minecraft servers through a WebAPI  # Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  # Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md)
  *
  * OpenAPI spec version: <version>
  * 
@@ -210,7 +210,7 @@ class PlayerApi
      * @param string $uuid The uuid of the player. (required)
      * @param \Swagger\Client\Model\RawRequest $request Information about which method to execute. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\PlayerMethodResult
+     * @return \Swagger\Client\Model\ExecutePlayerMethodResponse
      */
     public function executePlayerMethod($uuid, $request)
     {
@@ -226,7 +226,7 @@ class PlayerApi
      * @param string $uuid The uuid of the player. (required)
      * @param \Swagger\Client\Model\RawRequest $request Information about which method to execute. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\PlayerMethodResult, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\ExecutePlayerMethodResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function executePlayerMethodWithHttpInfo($uuid, $request)
     {
@@ -288,15 +288,15 @@ class PlayerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\PlayerMethodResult',
+                '\Swagger\Client\Model\ExecutePlayerMethodResponse',
                 '/player/{uuid}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\PlayerMethodResult', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\ExecutePlayerMethodResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\PlayerMethodResult', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\ExecutePlayerMethodResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

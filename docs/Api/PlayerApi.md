@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **executePlayerMethod**
-> \Swagger\Client\Model\PlayerMethodResult executePlayerMethod($uuid, $request)
+> \Swagger\Client\Model\ExecutePlayerMethodResponse executePlayerMethod($uuid, $request)
 
 Execute player method
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PlayerMethodResult**](../Model/PlayerMethodResult.md)
+[**\Swagger\Client\Model\ExecutePlayerMethodResponse**](../Model/ExecutePlayerMethodResponse.md)
 
 ### Authorization
 

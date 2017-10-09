@@ -4,12 +4,12 @@ All URIs are relative to *http://&lt;host&gt;/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getChat**](HistoryApi.md#getChat) | **GET** /history/chat | Chat History
-[**getCommands**](HistoryApi.md#getCommands) | **GET** /history/cmd | Command History
+[**getChatHistory**](HistoryApi.md#getChatHistory) | **GET** /history/chat | Chat History
+[**getCommandHistory**](HistoryApi.md#getCommandHistory) | **GET** /history/cmd | Command History
 
 
-# **getChat**
-> \Swagger\Client\Model\ChatHistoryResponse getChat()
+# **getChatHistory**
+> \Swagger\Client\Model\ChatHistoryResponse getChatHistory()
 
 Chat History
 
@@ -32,10 +32,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_
 $api_instance = new Swagger\Client\Api\HistoryApi();
 
 try {
-    $result = $api_instance->getChat();
+    $result = $api_instance->getChatHistory();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HistoryApi->getChat: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HistoryApi->getChatHistory: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -58,8 +58,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getCommands**
-> \Swagger\Client\Model\CommandHistoryResponse getCommands()
+# **getCommandHistory**
+> \Swagger\Client\Model\CommandHistoryResponse getCommandHistory()
 
 Command History
 
@@ -82,10 +82,10 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_
 $api_instance = new Swagger\Client\Api\HistoryApi();
 
 try {
-    $result = $api_instance->getCommands();
+    $result = $api_instance->getCommandHistory();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HistoryApi->getCommands: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HistoryApi->getCommandHistory: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
