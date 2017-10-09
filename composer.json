@@ -1,13 +1,13 @@
 {
-    "name": "GIT_USER_ID/GIT_REPO_ID",
-    "description": "",
+    "name": "valandur/webapi-client-php",
+    "description": "PHP client for the Web-API",
     "keywords": [
         "swagger",
         "php",
         "sdk",
         "api"
     ],
-    "homepage": "http://swagger.io",
+    "homepage": "https://github.com/Valandur/webapi-client-php",
     "license": "proprietary",
     "authors": [
         {
