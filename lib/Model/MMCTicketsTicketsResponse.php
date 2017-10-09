@@ -1,6 +1,6 @@
 <?php
 /**
- * PlayerMethodResult
+ * MMCTicketsTicketsResponse
  *
  * PHP version 5
  *
@@ -13,7 +13,7 @@
 /**
  * WebAPI
  *
- * Access Sponge powered Minecraft servers through a WebAPI  #/ Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  #/ Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md)
+ * Access Sponge powered Minecraft servers through a WebAPI  # Introduction This is the documentation of the various API routes offered by the WebAPI plugin.  This documentation assumes that you are familiar with the basic concepts of Web API's, such as `GET`, `PUT`, `POST` and `DELETE` methods, request `HEADERS` and `RESPONSE CODES` and `JSON` data.  By default this documentation can be found at http:/localhost:8080 (while your minecraft server is running) and the various routes start with http:/localhost:8080/api/...  As a quick test try reaching the route http:/localhost:8080/api/info (remember that you can only access \"localhost\" routes on the server on which you are running minecraft). This route should show you basic information about your server, like the motd and player count.  # Additional data Certain endpoints (such as `/player`, `/entity` and `/tile-entity` have additional properties which are not documented here, because the data depends on the concrete object type (eg. `Sheep` have a wool color, others do not) and on the other plugins/mods that are running on your server which might add additional data.  You can also find more information in the github docs (https:/github.com/Valandur/Web-API/tree/master/docs/DATA.md)
  *
  * OpenAPI spec version: <version>
  * 
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * PlayerMethodResult Class Doc Comment
+ * MMCTicketsTicketsResponse Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PlayerMethodResult implements ArrayAccess
+class MMCTicketsTicketsResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class PlayerMethodResult implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'PlayerMethodResult';
+    protected static $swaggerModelName = 'MMCTicketsTicketsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +55,7 @@ class PlayerMethodResult implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ok' => '\Swagger\Client\Model\Ok',
-        'player' => '\Swagger\Client\Model\RawResponse',
-        'result' => '\Swagger\Client\Model\RawResponse'
+        'crates' => '\Swagger\Client\Model\MMCTicket[]'
     ];
 
     /**
@@ -65,8 +64,7 @@ class PlayerMethodResult implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'ok' => null,
-        'player' => null,
-        'result' => null
+        'crates' => null
     ];
 
     public static function swaggerTypes()
@@ -85,8 +83,7 @@ class PlayerMethodResult implements ArrayAccess
      */
     protected static $attributeMap = [
         'ok' => 'ok',
-        'player' => 'player',
-        'result' => 'result'
+        'crates' => 'crates'
     ];
 
 
@@ -96,8 +93,7 @@ class PlayerMethodResult implements ArrayAccess
      */
     protected static $setters = [
         'ok' => 'setOk',
-        'player' => 'setPlayer',
-        'result' => 'setResult'
+        'crates' => 'setCrates'
     ];
 
 
@@ -107,8 +103,7 @@ class PlayerMethodResult implements ArrayAccess
      */
     protected static $getters = [
         'ok' => 'getOk',
-        'player' => 'getPlayer',
-        'result' => 'getResult'
+        'crates' => 'getCrates'
     ];
 
     public static function attributeMap()
@@ -143,8 +138,7 @@ class PlayerMethodResult implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['player'] = isset($data['player']) ? $data['player'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
+        $this->container['crates'] = isset($data['crates']) ? $data['crates'] : null;
     }
 
     /**
@@ -194,43 +188,22 @@ class PlayerMethodResult implements ArrayAccess
     }
 
     /**
-     * Gets player
-     * @return \Swagger\Client\Model\RawResponse
+     * Gets crates
+     * @return \Swagger\Client\Model\MMCTicket[]
      */
-    public function getPlayer()
+    public function getCrates()
     {
-        return $this->container['player'];
+        return $this->container['crates'];
     }
 
     /**
-     * Sets player
-     * @param \Swagger\Client\Model\RawResponse $player
+     * Sets crates
+     * @param \Swagger\Client\Model\MMCTicket[] $crates A list of tickets.
      * @return $this
      */
-    public function setPlayer($player)
+    public function setCrates($crates)
     {
-        $this->container['player'] = $player;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     * @return \Swagger\Client\Model\RawResponse
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     * @param \Swagger\Client\Model\RawResponse $result
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $this->container['result'] = $result;
+        $this->container['crates'] = $crates;
 
         return $this;
     }
