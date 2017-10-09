@@ -26,14 +26,14 @@ Update the properties of an existing world.  > Required permission: world.change
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $uuid = "uuid_example"; // string | The uuid of the world.
@@ -53,7 +53,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **string**| The uuid of the world. |
- **update_world_request** | [**\Swagger\Client\Model\UpdateWorldRequest**](../Model/\Swagger\Client\Model\UpdateWorldRequest.md)| The new properties of the world |
+ **update_world_request** | [**\Swagger\Client\Model\UpdateWorldRequest**](../Model/UpdateWorldRequest.md)| The new properties of the world |
 
 ### Return type
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -82,14 +82,14 @@ Creates a new world with the specified settings. This does not yet load the worl
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $create_world_request = new \Swagger\Client\Model\CreateWorldRequest(); // \Swagger\Client\Model\CreateWorldRequest | 
@@ -107,7 +107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_world_request** | [**\Swagger\Client\Model\CreateWorldRequest**](../Model/\Swagger\Client\Model\CreateWorldRequest.md)|  |
+ **create_world_request** | [**\Swagger\Client\Model\CreateWorldRequest**](../Model/CreateWorldRequest.md)|  |
 
 ### Return type
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -136,14 +136,14 @@ Deletes an existing world. **The world must be unloaded before deleting it**  > 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $uuid = "uuid_example"; // string | The uuid of the world.
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -190,14 +190,14 @@ Provides direct access to the underlaying world object and can execute any metho
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $uuid = "uuid_example"; // string | The uuid of the world.
@@ -217,7 +217,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **string**| The uuid of the world. |
- **request** | [**\Swagger\Client\Model\RawRequest**](../Model/\Swagger\Client\Model\RawRequest.md)| Information about which method to execute. |
+ **request** | [**\Swagger\Client\Model\RawRequest**](../Model/RawRequest.md)| Information about which method to execute. |
 
 ### Return type
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -246,14 +246,14 @@ Get detailed information about a chunk  > Required permission: world.chunk.one
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $uuid = "uuid_example"; // string | The uuid of the world.
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -304,14 +304,14 @@ Gets a list of all the loaded chunks for the specified world.  > Required permis
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $uuid = "uuid_example"; // string | The uuid of the world.
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -358,14 +358,14 @@ Get detailed information about a world.  > Required permission: world.one
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $uuid = "uuid_example"; // string | The uuid of the world to get detailed information about.
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -416,14 +416,14 @@ Get a list of all the worlds on the server.  > Required permission: world.list
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\WorldApi();
 $details = "details_example"; // string | Pass this parameter to receive the full details for each world.
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 

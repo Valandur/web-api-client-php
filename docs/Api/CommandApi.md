@@ -21,17 +21,17 @@ Execute a command on the server. (Almost the same as running it from the console
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\CommandApi();
-$request = array(new CommandRequest()); // \Swagger\Client\Model\CommandRequest[] | The command and arguments sent to the server
+$request = array(new \Swagger\Client\Model\CommandRequest()); // \Swagger\Client\Model\CommandRequest[] | The command and arguments sent to the server
 
 try {
     $result = $api_instance->executeCommand($request);
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -75,14 +75,14 @@ Get detailed information about a command.  > Required permission: cmd.one
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\CommandApi();
 $name = "name_example"; // string | The name (main alias) of the command
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -129,14 +129,14 @@ Gets a list of all the commands available on the server.  > Required permission:
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\CommandApi();
 
@@ -158,7 +158,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 

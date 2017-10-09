@@ -19,14 +19,14 @@ Send an interactive message to a player. Make sure to have an event hook for \"c
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\MessageApi();
 $request = new \Swagger\Client\Model\MessageRequest(); // \Swagger\Client\Model\MessageRequest | Details of the message sent to the player
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**\Swagger\Client\Model\MessageRequest**](../Model/\Swagger\Client\Model\MessageRequest.md)| Details of the message sent to the player |
+ **request** | [**\Swagger\Client\Model\MessageRequest**](../Model/MessageRequest.md)| Details of the message sent to the player |
 
 ### Return type
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 

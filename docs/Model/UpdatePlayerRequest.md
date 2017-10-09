@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **experience_since_level** | **float** | The amount of experience since the last level up that the player has collected. | [optional] 
 **health** | **double** | The current amount of health the player has. | [optional] 
 **max_health** | **double** | The total amount of health the player can have at maximum. | [optional] 
-**damage** | [**\Swagger\Client\Model\UpdatePlayerRequestDamage**](UpdatePlayerRequestDamage.md) |  | [optional] 
+**damage** | [**\Swagger\Client\Model\DamageRequest1**](DamageRequest1.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

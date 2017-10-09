@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**uuid** | **string** | The unique identifier of the chunk. | [optional] 
+**position** | [**\Swagger\Client\Model\Vector3**](Vector3.md) |  | [optional] 
 **world** | [**\Swagger\Client\Model\World**](World.md) |  | [optional] 
 **block_min** | [**\Swagger\Client\Model\Vector3**](Vector3.md) |  | [optional] 
 **block_max** | [**\Swagger\Client\Model\Vector3**](Vector3.md) |  | [optional] 

@@ -21,14 +21,14 @@ Provides direct access to the underlaying tile entity object and can execute any
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\TileEntityApi();
 $world_uuid = "world_uuid_example"; // string | The uuid of the world the tile entity is in.
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
  **x** | **string**| The x-coordinate of the tile entity. |
  **y** | **string**| The y-coordinate of the tile entity. |
  **z** | **string**| The z-coordinate of the tile entity. |
- **request** | [**\Swagger\Client\Model\RawRequest**](../Model/\Swagger\Client\Model\RawRequest.md)| Information about which method to execute. |
+ **request** | [**\Swagger\Client\Model\RawRequest**](../Model/RawRequest.md)| Information about which method to execute. |
 
 ### Return type
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -83,14 +83,14 @@ Get a list of all tile entities on the server (in all worlds, unless specified).
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\TileEntityApi();
 $world = "world_example"; // string | The uuid of the world to filter entities by.
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -141,14 +141,14 @@ Get detailed information about a tile entity.  > Required permission: tile-entit
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\TileEntityApi();
 $world_uuid = "world_uuid_example"; // string | The uuid of the world the tile entity is in.
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 

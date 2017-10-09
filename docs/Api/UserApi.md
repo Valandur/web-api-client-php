@@ -20,14 +20,14 @@ Checks to see if the passed api key is still valid.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\UserApi();
 
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 
@@ -70,14 +70,14 @@ Tries to aquire an api key with the passed credentials.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 // Configure API key authorization: headerKey
 Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
+// Configure API key authorization: queryKey
+Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\UserApi();
 $login_request = new \Swagger\Client\Model\LoginRequest(); // \Swagger\Client\Model\LoginRequest | 
@@ -95,7 +95,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **login_request** | [**\Swagger\Client\Model\LoginRequest**](../Model/\Swagger\Client\Model\LoginRequest.md)|  |
+ **login_request** | [**\Swagger\Client\Model\LoginRequest**](../Model/LoginRequest.md)|  |
 
 ### Return type
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[queryKey](../../README.md#queryKey), [headerKey](../../README.md#headerKey)
+[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
 
 ### HTTP request headers
 

@@ -3,11 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**border** | **object** |  | [optional] 
+**name** | **string** | The name of the world. | [optional] 
+**uuid** | **string** | The unique id of the world. | [optional] 
+**link** | **string** | The API URL which contains detailed information about this world. | [optional] 
+**border** | [**\Swagger\Client\Model\WorldFullBorder**](WorldFullBorder.md) |  | [optional] 
 **difficulty** | **string** | The current difficulty of the world. | [optional] 
-**dimension** | **object** |  | [optional] 
+**dimension** | [**\Swagger\Client\Model\WorldFullDimension**](WorldFullDimension.md) |  | [optional] 
 **game_mode** | **string** | The default game mode of the world. | [optional] 
-**generator** | **object** |  | [optional] 
+**generator** | [**\Swagger\Client\Model\WorldFullGenerator**](WorldFullGenerator.md) |  | [optional] 
 **seed** | **float** | The seed used to generate this world. | [optional] 
 **spawn** | [**\Swagger\Client\Model\Vector3**](Vector3.md) |  | [optional] 
 **time** | **float** | The current in game time. | [optional] 
