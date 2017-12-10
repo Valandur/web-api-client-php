@@ -58,7 +58,7 @@ class MessageRequest implements ArrayAccess
         'target' => 'string',
         'message' => 'string',
         'once' => 'bool',
-        'options' => 'object'
+        'options' => '\Swagger\Client\Model\MessageOption[]'
     ];
 
     /**
@@ -270,7 +270,7 @@ class MessageRequest implements ArrayAccess
 
     /**
      * Gets options
-     * @return object
+     * @return \Swagger\Client\Model\MessageOption[]
      */
     public function getOptions()
     {
@@ -279,7 +279,7 @@ class MessageRequest implements ArrayAccess
 
     /**
      * Sets options
-     * @param object $options These are the options the player can choose from. The key is sent back to the server, the value is displayed to the player.
+     * @param \Swagger\Client\Model\MessageOption[] $options These are the options the player can choose from. The key is sent back to the server, the value is displayed to the player.
      * @return $this
      */
     public function setOptions($options)

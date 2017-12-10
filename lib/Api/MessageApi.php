@@ -88,6 +88,194 @@ class MessageApi
     }
 
     /**
+     * Operation getMessage
+     *
+     * Detailed message info
+     *
+     * @param string $uuid The uuid of the message to get detailed information about. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function getMessage($uuid)
+    {
+        list($response) = $this->getMessageWithHttpInfo($uuid);
+        return $response;
+    }
+
+    /**
+     * Operation getMessageWithHttpInfo
+     *
+     * Detailed message info
+     *
+     * @param string $uuid The uuid of the message to get detailed information about. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMessageWithHttpInfo($uuid)
+    {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $uuid when calling getMessage');
+        }
+        // parse inputs
+        $resourcePath = "/message/{uuid}";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
+
+        // path params
+        if ($uuid !== null) {
+            $resourcePath = str_replace(
+                "{" . "uuid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($uuid),
+                $resourcePath
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-webapi-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-webapi-key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('key');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/message/{uuid}'
+            );
+
+            return [null, $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse400', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse400', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse400', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getMessages
+     *
+     * Message list
+     *
+     * @param string $details Pass this parameter to receive the full details for each message. (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\MessagesResponse
+     */
+    public function getMessages($details = null)
+    {
+        list($response) = $this->getMessagesWithHttpInfo($details);
+        return $response;
+    }
+
+    /**
+     * Operation getMessagesWithHttpInfo
+     *
+     * Message list
+     *
+     * @param string $details Pass this parameter to receive the full details for each message. (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\MessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getMessagesWithHttpInfo($details = null)
+    {
+        // parse inputs
+        $resourcePath = "/message";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
+
+        // query params
+        if ($details !== null) {
+            $queryParams['details'] = $this->apiClient->getSerializer()->toQueryValue($details);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-webapi-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-webapi-key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('key');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\MessagesResponse',
+                '/message'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\MessagesResponse', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\MessagesResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\InlineResponse400', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation sendMessage
      *
      * Send an interactive message
@@ -123,11 +311,11 @@ class MessageApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
         // body params
         $_tempBody = null;

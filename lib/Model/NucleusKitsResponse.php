@@ -55,7 +55,7 @@ class NucleusKitsResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ok' => '\Swagger\Client\Model\Ok',
-        'nations' => '\Swagger\Client\Model\NucleusKit[]'
+        'kits' => '\Swagger\Client\Model\NucleusKit[]'
     ];
 
     /**
@@ -64,7 +64,7 @@ class NucleusKitsResponse implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'ok' => null,
-        'nations' => null
+        'kits' => null
     ];
 
     public static function swaggerTypes()
@@ -83,7 +83,7 @@ class NucleusKitsResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'ok' => 'ok',
-        'nations' => 'nations'
+        'kits' => 'kits'
     ];
 
 
@@ -93,7 +93,7 @@ class NucleusKitsResponse implements ArrayAccess
      */
     protected static $setters = [
         'ok' => 'setOk',
-        'nations' => 'setNations'
+        'kits' => 'setKits'
     ];
 
 
@@ -103,7 +103,7 @@ class NucleusKitsResponse implements ArrayAccess
      */
     protected static $getters = [
         'ok' => 'getOk',
-        'nations' => 'getNations'
+        'kits' => 'getKits'
     ];
 
     public static function attributeMap()
@@ -138,7 +138,7 @@ class NucleusKitsResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['nations'] = isset($data['nations']) ? $data['nations'] : null;
+        $this->container['kits'] = isset($data['kits']) ? $data['kits'] : null;
     }
 
     /**
@@ -188,22 +188,22 @@ class NucleusKitsResponse implements ArrayAccess
     }
 
     /**
-     * Gets nations
+     * Gets kits
      * @return \Swagger\Client\Model\NucleusKit[]
      */
-    public function getNations()
+    public function getKits()
     {
-        return $this->container['nations'];
+        return $this->container['kits'];
     }
 
     /**
-     * Sets nations
-     * @param \Swagger\Client\Model\NucleusKit[] $nations A list of jails.
+     * Sets kits
+     * @param \Swagger\Client\Model\NucleusKit[] $kits A list of jails.
      * @return $this
      */
-    public function setNations($nations)
+    public function setKits($kits)
     {
-        $this->container['nations'] = $nations;
+        $this->container['kits'] = $kits;
 
         return $this;
     }

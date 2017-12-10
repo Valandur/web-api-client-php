@@ -109,6 +109,8 @@ Class | Method | HTTP request | Description
 *MMCTicketsApi* | [**changeTicket**](docs/Api/MMCTicketsApi.md#changeticket) | **PUT** /mmctickets/ticket/{id} | Edit ticket
 *MMCTicketsApi* | [**getTicket**](docs/Api/MMCTicketsApi.md#getticket) | **GET** /mmctickets/ticket/{id} | Detailed ticket info
 *MMCTicketsApi* | [**getTickets**](docs/Api/MMCTicketsApi.md#gettickets) | **GET** /mmctickets/ticket | Ticket list
+*MessageApi* | [**getMessage**](docs/Api/MessageApi.md#getmessage) | **GET** /message/{uuid} | Detailed message info
+*MessageApi* | [**getMessages**](docs/Api/MessageApi.md#getmessages) | **GET** /message | Message list
 *MessageApi* | [**sendMessage**](docs/Api/MessageApi.md#sendmessage) | **POST** /message | Send an interactive message
 *NationsApi* | [**getNation**](docs/Api/NationsApi.md#getnation) | **GET** /nations/nation/{id} | Detailed nation info
 *NationsApi* | [**getNations**](docs/Api/NationsApi.md#getnations) | **GET** /nations/nation | Nations list
@@ -188,8 +190,11 @@ Class | Method | HTTP request | Description
  - [MMCTicketsTicketResponse](docs/Model/MMCTicketsTicketResponse.md)
  - [MMCTicketsTicketsResponse](docs/Model/MMCTicketsTicketsResponse.md)
  - [MMCUpdateTicketRequest](docs/Model/MMCUpdateTicketRequest.md)
+ - [Message](docs/Model/Message.md)
+ - [MessageOption](docs/Model/MessageOption.md)
  - [MessageRequest](docs/Model/MessageRequest.md)
  - [MessageResponse](docs/Model/MessageResponse.md)
+ - [MessagesResponse](docs/Model/MessagesResponse.md)
  - [NationsNation](docs/Model/NationsNation.md)
  - [NationsNationResponse](docs/Model/NationsNationResponse.md)
  - [NationsNationsResponse](docs/Model/NationsNationsResponse.md)
@@ -244,6 +249,7 @@ Class | Method | HTTP request | Description
  - [EntityFull](docs/Model/EntityFull.md)
  - [HuskyCrateFull](docs/Model/HuskyCrateFull.md)
  - [MMCTicketFull](docs/Model/MMCTicketFull.md)
+ - [MessageFull](docs/Model/MessageFull.md)
  - [NationsNationFull](docs/Model/NationsNationFull.md)
  - [NucleusKitFull](docs/Model/NucleusKitFull.md)
  - [PlayerFull](docs/Model/PlayerFull.md)

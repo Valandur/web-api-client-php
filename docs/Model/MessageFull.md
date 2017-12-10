@@ -1,8 +1,9 @@
-# MessageRequest
+# MessageFull
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**uuid** | **string** | The unique UUID assigned to the message by the Web-API. | [optional] 
 **id** | **string** | The id of the message. This will be sent back in the reply, so you can identify the request. | [optional] 
 **target** | **string** | The UUID of the player this message is sent to. | [optional] 
 **message** | **string** | The message sent to the player. Text formatting can be applied with ampersand formatting. | [optional] 

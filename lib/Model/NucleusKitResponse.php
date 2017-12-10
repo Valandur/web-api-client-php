@@ -55,7 +55,7 @@ class NucleusKitResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ok' => '\Swagger\Client\Model\Ok',
-        'nation' => '\Swagger\Client\Model\NucleusKitFull'
+        'kit' => '\Swagger\Client\Model\NucleusKitFull'
     ];
 
     /**
@@ -64,7 +64,7 @@ class NucleusKitResponse implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'ok' => null,
-        'nation' => null
+        'kit' => null
     ];
 
     public static function swaggerTypes()
@@ -83,7 +83,7 @@ class NucleusKitResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'ok' => 'ok',
-        'nation' => 'nation'
+        'kit' => 'kit'
     ];
 
 
@@ -93,7 +93,7 @@ class NucleusKitResponse implements ArrayAccess
      */
     protected static $setters = [
         'ok' => 'setOk',
-        'nation' => 'setNation'
+        'kit' => 'setKit'
     ];
 
 
@@ -103,7 +103,7 @@ class NucleusKitResponse implements ArrayAccess
      */
     protected static $getters = [
         'ok' => 'getOk',
-        'nation' => 'getNation'
+        'kit' => 'getKit'
     ];
 
     public static function attributeMap()
@@ -138,7 +138,7 @@ class NucleusKitResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['nation'] = isset($data['nation']) ? $data['nation'] : null;
+        $this->container['kit'] = isset($data['kit']) ? $data['kit'] : null;
     }
 
     /**
@@ -188,22 +188,22 @@ class NucleusKitResponse implements ArrayAccess
     }
 
     /**
-     * Gets nation
+     * Gets kit
      * @return \Swagger\Client\Model\NucleusKitFull
      */
-    public function getNation()
+    public function getKit()
     {
-        return $this->container['nation'];
+        return $this->container['kit'];
     }
 
     /**
-     * Sets nation
-     * @param \Swagger\Client\Model\NucleusKitFull $nation
+     * Sets kit
+     * @param \Swagger\Client\Model\NucleusKitFull $kit
      * @return $this
      */
-    public function setNation($nation)
+    public function setKit($kit)
     {
-        $this->container['nation'] = $nation;
+        $this->container['kit'] = $kit;
 
         return $this;
     }

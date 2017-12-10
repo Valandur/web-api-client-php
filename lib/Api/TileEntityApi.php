@@ -93,9 +93,9 @@ class TileEntityApi
      * Execute tile entity methods
      *
      * @param string $world_uuid The uuid of the world the tile entity is in. (required)
-     * @param string $x The x-coordinate of the tile entity. (required)
-     * @param string $y The y-coordinate of the tile entity. (required)
-     * @param string $z The z-coordinate of the tile entity. (required)
+     * @param int $x The x-coordinate of the tile entity. (required)
+     * @param int $y The y-coordinate of the tile entity. (required)
+     * @param int $z The z-coordinate of the tile entity. (required)
      * @param \Swagger\Client\Model\RawRequest $request Information about which method to execute. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\ExecuteTileEntityMethodResponse
@@ -112,9 +112,9 @@ class TileEntityApi
      * Execute tile entity methods
      *
      * @param string $world_uuid The uuid of the world the tile entity is in. (required)
-     * @param string $x The x-coordinate of the tile entity. (required)
-     * @param string $y The y-coordinate of the tile entity. (required)
-     * @param string $z The z-coordinate of the tile entity. (required)
+     * @param int $x The x-coordinate of the tile entity. (required)
+     * @param int $y The y-coordinate of the tile entity. (required)
+     * @param int $z The z-coordinate of the tile entity. (required)
      * @param \Swagger\Client\Model\RawRequest $request Information about which method to execute. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\ExecuteTileEntityMethodResponse, HTTP status code, HTTP response headers (array of strings)
@@ -147,11 +147,11 @@ class TileEntityApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
         // path params
         if ($world_uuid !== null) {
@@ -280,11 +280,11 @@ class TileEntityApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
         // query params
         if ($world !== null) {
@@ -350,9 +350,9 @@ class TileEntityApi
      * Detailed tile entity info
      *
      * @param string $world_uuid The uuid of the world the tile entity is in. (required)
-     * @param string $x The x-coordinate of the tile entity. (required)
-     * @param string $y The y-coordinate of the tile entity. (required)
-     * @param string $z The z-coordinate of the tile entity. (required)
+     * @param int $x The x-coordinate of the tile entity. (required)
+     * @param int $y The y-coordinate of the tile entity. (required)
+     * @param int $z The z-coordinate of the tile entity. (required)
      * @param string $fields An optional list of additional fields to get. (optional)
      * @param string $methods An optional list of additional methods to get. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -370,9 +370,9 @@ class TileEntityApi
      * Detailed tile entity info
      *
      * @param string $world_uuid The uuid of the world the tile entity is in. (required)
-     * @param string $x The x-coordinate of the tile entity. (required)
-     * @param string $y The y-coordinate of the tile entity. (required)
-     * @param string $z The z-coordinate of the tile entity. (required)
+     * @param int $x The x-coordinate of the tile entity. (required)
+     * @param int $y The y-coordinate of the tile entity. (required)
+     * @param int $z The z-coordinate of the tile entity. (required)
      * @param string $fields An optional list of additional fields to get. (optional)
      * @param string $methods An optional list of additional methods to get. (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -402,11 +402,11 @@ class TileEntityApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json']);
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
         // query params
         if ($fields !== null) {
