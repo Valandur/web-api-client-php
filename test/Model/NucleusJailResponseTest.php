@@ -85,9 +85,9 @@ class NucleusJailResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "nation"
+     * Test attribute "jail"
      */
-    public function testPropertyNation()
+    public function testPropertyJail()
     {
     }
 }

@@ -32,9 +32,9 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_
 
 $api_instance = new Swagger\Client\Api\TileEntityApi();
 $world_uuid = "world_uuid_example"; // string | The uuid of the world the tile entity is in.
-$x = "x_example"; // string | The x-coordinate of the tile entity.
-$y = "y_example"; // string | The y-coordinate of the tile entity.
-$z = "z_example"; // string | The z-coordinate of the tile entity.
+$x = 56; // int | The x-coordinate of the tile entity.
+$y = 56; // int | The y-coordinate of the tile entity.
+$z = 56; // int | The z-coordinate of the tile entity.
 $request = new \Swagger\Client\Model\RawRequest(); // \Swagger\Client\Model\RawRequest | Information about which method to execute.
 
 try {
@@ -51,9 +51,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **world_uuid** | **string**| The uuid of the world the tile entity is in. |
- **x** | **string**| The x-coordinate of the tile entity. |
- **y** | **string**| The y-coordinate of the tile entity. |
- **z** | **string**| The z-coordinate of the tile entity. |
+ **x** | **int**| The x-coordinate of the tile entity. |
+ **y** | **int**| The y-coordinate of the tile entity. |
+ **z** | **int**| The z-coordinate of the tile entity. |
  **request** | [**\Swagger\Client\Model\RawRequest**](../Model/RawRequest.md)| Information about which method to execute. |
 
 ### Return type
@@ -66,8 +66,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -124,8 +124,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -152,9 +152,9 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_
 
 $api_instance = new Swagger\Client\Api\TileEntityApi();
 $world_uuid = "world_uuid_example"; // string | The uuid of the world the tile entity is in.
-$x = "x_example"; // string | The x-coordinate of the tile entity.
-$y = "y_example"; // string | The y-coordinate of the tile entity.
-$z = "z_example"; // string | The z-coordinate of the tile entity.
+$x = 56; // int | The x-coordinate of the tile entity.
+$y = 56; // int | The y-coordinate of the tile entity.
+$z = 56; // int | The z-coordinate of the tile entity.
 $fields = "fields_example"; // string | An optional list of additional fields to get.
 $methods = "methods_example"; // string | An optional list of additional methods to get.
 
@@ -172,9 +172,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **world_uuid** | **string**| The uuid of the world the tile entity is in. |
- **x** | **string**| The x-coordinate of the tile entity. |
- **y** | **string**| The y-coordinate of the tile entity. |
- **z** | **string**| The z-coordinate of the tile entity. |
+ **x** | **int**| The x-coordinate of the tile entity. |
+ **y** | **int**| The y-coordinate of the tile entity. |
+ **z** | **int**| The z-coordinate of the tile entity. |
  **fields** | **string**| An optional list of additional fields to get. | [optional]
  **methods** | **string**| An optional list of additional methods to get. | [optional]
 
@@ -188,8 +188,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

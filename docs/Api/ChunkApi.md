@@ -31,8 +31,8 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_
 
 $api_instance = new Swagger\Client\Api\ChunkApi();
 $uuid = "uuid_example"; // string | The uuid of the world.
-$x = "x_example"; // string | The x-coordinate of the chunk.
-$z = "z_example"; // string | The z-coordinate of the chunk.
+$x = 56; // int | The x-coordinate of the chunk.
+$z = 56; // int | The z-coordinate of the chunk.
 
 try {
     $result = $api_instance->getChunk($uuid, $x, $z);
@@ -48,8 +48,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uuid** | **string**| The uuid of the world. |
- **x** | **string**| The x-coordinate of the chunk. |
- **z** | **string**| The z-coordinate of the chunk. |
+ **x** | **int**| The x-coordinate of the chunk. |
+ **z** | **int**| The z-coordinate of the chunk. |
 
 ### Return type
 
@@ -61,8 +61,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -115,8 +115,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

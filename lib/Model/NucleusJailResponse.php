@@ -55,7 +55,7 @@ class NucleusJailResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ok' => '\Swagger\Client\Model\Ok',
-        'nation' => '\Swagger\Client\Model\NucleusJailFull'
+        'jail' => '\Swagger\Client\Model\NucleusJailFull'
     ];
 
     /**
@@ -64,7 +64,7 @@ class NucleusJailResponse implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'ok' => null,
-        'nation' => null
+        'jail' => null
     ];
 
     public static function swaggerTypes()
@@ -83,7 +83,7 @@ class NucleusJailResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'ok' => 'ok',
-        'nation' => 'nation'
+        'jail' => 'jail'
     ];
 
 
@@ -93,7 +93,7 @@ class NucleusJailResponse implements ArrayAccess
      */
     protected static $setters = [
         'ok' => 'setOk',
-        'nation' => 'setNation'
+        'jail' => 'setJail'
     ];
 
 
@@ -103,7 +103,7 @@ class NucleusJailResponse implements ArrayAccess
      */
     protected static $getters = [
         'ok' => 'getOk',
-        'nation' => 'getNation'
+        'jail' => 'getJail'
     ];
 
     public static function attributeMap()
@@ -138,7 +138,7 @@ class NucleusJailResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['nation'] = isset($data['nation']) ? $data['nation'] : null;
+        $this->container['jail'] = isset($data['jail']) ? $data['jail'] : null;
     }
 
     /**
@@ -188,22 +188,22 @@ class NucleusJailResponse implements ArrayAccess
     }
 
     /**
-     * Gets nation
+     * Gets jail
      * @return \Swagger\Client\Model\NucleusJailFull
      */
-    public function getNation()
+    public function getJail()
     {
-        return $this->container['nation'];
+        return $this->container['jail'];
     }
 
     /**
-     * Sets nation
-     * @param \Swagger\Client\Model\NucleusJailFull $nation
+     * Sets jail
+     * @param \Swagger\Client\Model\NucleusJailFull $jail
      * @return $this
      */
-    public function setNation($nation)
+    public function setJail($jail)
     {
-        $this->container['nation'] = $nation;
+        $this->container['jail'] = $jail;
 
         return $this;
     }

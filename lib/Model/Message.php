@@ -1,6 +1,6 @@
 <?php
 /**
- * NucleusJailsResponse
+ * Message
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * NucleusJailsResponse Class Doc Comment
+ * Message Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NucleusJailsResponse implements ArrayAccess
+class Message implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,15 +47,15 @@ class NucleusJailsResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NucleusJailsResponse';
+    protected static $swaggerModelName = 'Message';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ok' => '\Swagger\Client\Model\Ok',
-        'jails' => '\Swagger\Client\Model\NucleusJailFull[]'
+        'uuid' => 'string',
+        'id' => 'string'
     ];
 
     /**
@@ -63,8 +63,8 @@ class NucleusJailsResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ok' => null,
-        'jails' => null
+        'uuid' => null,
+        'id' => null
     ];
 
     public static function swaggerTypes()
@@ -82,8 +82,8 @@ class NucleusJailsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ok' => 'ok',
-        'jails' => 'jails'
+        'uuid' => 'uuid',
+        'id' => 'id'
     ];
 
 
@@ -92,8 +92,8 @@ class NucleusJailsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ok' => 'setOk',
-        'jails' => 'setJails'
+        'uuid' => 'setUuid',
+        'id' => 'setId'
     ];
 
 
@@ -102,8 +102,8 @@ class NucleusJailsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ok' => 'getOk',
-        'jails' => 'getJails'
+        'uuid' => 'getUuid',
+        'id' => 'getId'
     ];
 
     public static function attributeMap()
@@ -137,8 +137,8 @@ class NucleusJailsResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['jails'] = isset($data['jails']) ? $data['jails'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -167,43 +167,43 @@ class NucleusJailsResponse implements ArrayAccess
 
 
     /**
-     * Gets ok
-     * @return \Swagger\Client\Model\Ok
+     * Gets uuid
+     * @return string
      */
-    public function getOk()
+    public function getUuid()
     {
-        return $this->container['ok'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets ok
-     * @param \Swagger\Client\Model\Ok $ok
+     * Sets uuid
+     * @param string $uuid The unique UUID assigned to the message by the Web-API.
      * @return $this
      */
-    public function setOk($ok)
+    public function setUuid($uuid)
     {
-        $this->container['ok'] = $ok;
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }
 
     /**
-     * Gets jails
-     * @return \Swagger\Client\Model\NucleusJailFull[]
+     * Gets id
+     * @return string
      */
-    public function getJails()
+    public function getId()
     {
-        return $this->container['jails'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets jails
-     * @param \Swagger\Client\Model\NucleusJailFull[] $jails A list of jails.
+     * Sets id
+     * @param string $id The id of the message. This will be sent back in the reply, so you can identify the request.
      * @return $this
      */
-    public function setJails($jails)
+    public function setId($id)
     {
-        $this->container['jails'] = $jails;
+        $this->container['id'] = $id;
 
         return $this;
     }

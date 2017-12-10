@@ -1,6 +1,6 @@
 <?php
 /**
- * NucleusKitResponseTest
+ * MessageTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * NucleusKitResponseTest Class Doc Comment
+ * MessageTest Class Doc Comment
  *
  * @category    Class */
-// * @description NucleusKitResponse
+// * @description Message
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NucleusKitResponseTest extends \PHPUnit_Framework_TestCase
+class MessageTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,23 +71,23 @@ class NucleusKitResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "NucleusKitResponse"
+     * Test "Message"
      */
-    public function testNucleusKitResponse()
+    public function testMessage()
     {
     }
 
     /**
-     * Test attribute "ok"
+     * Test attribute "uuid"
      */
-    public function testPropertyOk()
+    public function testPropertyUuid()
     {
     }
 
     /**
-     * Test attribute "kit"
+     * Test attribute "id"
      */
-    public function testPropertyKit()
+    public function testPropertyId()
     {
     }
 }

@@ -61,8 +61,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -117,8 +117,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -145,9 +145,9 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_
 
 $api_instance = new Swagger\Client\Api\BlockApi();
 $world = "world_example"; // string | The uuid of the world the block is in.
-$x = "x_example"; // string | The x-coordinate of the block.
-$y = "y_example"; // string | The y-coordinate of the block.
-$z = "z_example"; // string | The z-coordinate of the block.
+$x = 56; // int | The x-coordinate of the block.
+$y = 56; // int | The y-coordinate of the block.
+$z = 56; // int | The z-coordinate of the block.
 
 try {
     $result = $api_instance->getBlock($world, $x, $y, $z);
@@ -163,9 +163,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **world** | **string**| The uuid of the world the block is in. |
- **x** | **string**| The x-coordinate of the block. |
- **y** | **string**| The y-coordinate of the block. |
- **z** | **string**| The z-coordinate of the block. |
+ **x** | **int**| The x-coordinate of the block. |
+ **y** | **int**| The y-coordinate of the block. |
+ **z** | **int**| The z-coordinate of the block. |
 
 ### Return type
 
@@ -177,8 +177,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -231,8 +231,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -281,8 +281,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -335,8 +335,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

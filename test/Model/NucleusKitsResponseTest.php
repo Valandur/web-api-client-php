@@ -85,9 +85,9 @@ class NucleusKitsResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "nations"
+     * Test attribute "kits"
      */
-    public function testPropertyNations()
+    public function testPropertyKits()
     {
     }
 }

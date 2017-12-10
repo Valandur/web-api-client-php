@@ -1,6 +1,6 @@
 <?php
 /**
- * NucleusJailsResponse
+ * MessagesResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * NucleusJailsResponse Class Doc Comment
+ * MessagesResponse Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NucleusJailsResponse implements ArrayAccess
+class MessagesResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class NucleusJailsResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NucleusJailsResponse';
+    protected static $swaggerModelName = 'MessagesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,7 +55,7 @@ class NucleusJailsResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ok' => '\Swagger\Client\Model\Ok',
-        'jails' => '\Swagger\Client\Model\NucleusJailFull[]'
+        'messages' => '\Swagger\Client\Model\Message[]'
     ];
 
     /**
@@ -64,7 +64,7 @@ class NucleusJailsResponse implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'ok' => null,
-        'jails' => null
+        'messages' => null
     ];
 
     public static function swaggerTypes()
@@ -83,7 +83,7 @@ class NucleusJailsResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'ok' => 'ok',
-        'jails' => 'jails'
+        'messages' => 'messages'
     ];
 
 
@@ -93,7 +93,7 @@ class NucleusJailsResponse implements ArrayAccess
      */
     protected static $setters = [
         'ok' => 'setOk',
-        'jails' => 'setJails'
+        'messages' => 'setMessages'
     ];
 
 
@@ -103,7 +103,7 @@ class NucleusJailsResponse implements ArrayAccess
      */
     protected static $getters = [
         'ok' => 'getOk',
-        'jails' => 'getJails'
+        'messages' => 'getMessages'
     ];
 
     public static function attributeMap()
@@ -138,7 +138,7 @@ class NucleusJailsResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['jails'] = isset($data['jails']) ? $data['jails'] : null;
+        $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
     }
 
     /**
@@ -188,22 +188,22 @@ class NucleusJailsResponse implements ArrayAccess
     }
 
     /**
-     * Gets jails
-     * @return \Swagger\Client\Model\NucleusJailFull[]
+     * Gets messages
+     * @return \Swagger\Client\Model\Message[]
      */
-    public function getJails()
+    public function getMessages()
     {
-        return $this->container['jails'];
+        return $this->container['messages'];
     }
 
     /**
-     * Sets jails
-     * @param \Swagger\Client\Model\NucleusJailFull[] $jails A list of jails.
+     * Sets messages
+     * @param \Swagger\Client\Model\Message[] $messages A list of messages.
      * @return $this
      */
-    public function setJails($jails)
+    public function setMessages($messages)
     {
-        $this->container['jails'] = $jails;
+        $this->container['messages'] = $messages;
 
         return $this;
     }

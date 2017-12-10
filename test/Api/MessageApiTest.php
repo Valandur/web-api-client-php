@@ -73,6 +73,26 @@ class MessageApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getMessage
+     *
+     * Detailed message info.
+     *
+     */
+    public function testGetMessage()
+    {
+    }
+
+    /**
+     * Test case for getMessages
+     *
+     * Message list.
+     *
+     */
+    public function testGetMessages()
+    {
+    }
+
+    /**
      * Test case for sendMessage
      *
      * Send an interactive message.
