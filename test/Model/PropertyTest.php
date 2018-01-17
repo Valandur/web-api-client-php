@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsNationsResponseTest
+ * PropertyTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * NationsNationsResponseTest Class Doc Comment
+ * PropertyTest Class Doc Comment
  *
  * @category    Class */
-// * @description NationsNationsResponse
+// * @description Property
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsNationsResponseTest extends \PHPUnit_Framework_TestCase
+class PropertyTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,23 +71,23 @@ class NationsNationsResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "NationsNationsResponse"
+     * Test "Property"
      */
-    public function testNationsNationsResponse()
+    public function testProperty()
     {
     }
 
     /**
-     * Test attribute "ok"
+     * Test attribute "key"
      */
-    public function testPropertyOk()
+    public function testPropertyKey()
     {
     }
 
     /**
-     * Test attribute "nations"
+     * Test attribute "value"
      */
-    public function testPropertyNations()
+    public function testPropertyValue()
     {
     }
 }

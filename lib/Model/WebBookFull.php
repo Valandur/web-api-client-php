@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsRect
+ * WebBookFull
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * NationsRect Class Doc Comment
+ * WebBookFull Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsRect implements ArrayAccess
+class WebBookFull implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,18 +47,17 @@ class NationsRect implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NationsRect';
+    protected static $swaggerModelName = 'WebBookFull';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'world' => '\Swagger\Client\Model\World',
-        'min_x' => 'float',
-        'min_y' => 'float',
-        'max_x' => 'float',
-        'max_y' => 'float'
+        'id' => 'string',
+        'title' => 'string',
+        'lines' => 'string[]',
+        'html' => 'string'
     ];
 
     /**
@@ -66,11 +65,10 @@ class NationsRect implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'world' => null,
-        'min_x' => 'integer',
-        'min_y' => 'integer',
-        'max_x' => 'integer',
-        'max_y' => 'integer'
+        'id' => null,
+        'title' => null,
+        'lines' => null,
+        'html' => null
     ];
 
     public static function swaggerTypes()
@@ -88,11 +86,10 @@ class NationsRect implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'world' => 'world',
-        'min_x' => 'minX',
-        'min_y' => 'minY',
-        'max_x' => 'maxX',
-        'max_y' => 'maxY'
+        'id' => 'id',
+        'title' => 'title',
+        'lines' => 'lines',
+        'html' => 'html'
     ];
 
 
@@ -101,11 +98,10 @@ class NationsRect implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'world' => 'setWorld',
-        'min_x' => 'setMinX',
-        'min_y' => 'setMinY',
-        'max_x' => 'setMaxX',
-        'max_y' => 'setMaxY'
+        'id' => 'setId',
+        'title' => 'setTitle',
+        'lines' => 'setLines',
+        'html' => 'setHtml'
     ];
 
 
@@ -114,11 +110,10 @@ class NationsRect implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'world' => 'getWorld',
-        'min_x' => 'getMinX',
-        'min_y' => 'getMinY',
-        'max_x' => 'getMaxX',
-        'max_y' => 'getMaxY'
+        'id' => 'getId',
+        'title' => 'getTitle',
+        'lines' => 'getLines',
+        'html' => 'getHtml'
     ];
 
     public static function attributeMap()
@@ -152,11 +147,10 @@ class NationsRect implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['world'] = isset($data['world']) ? $data['world'] : null;
-        $this->container['min_x'] = isset($data['min_x']) ? $data['min_x'] : null;
-        $this->container['min_y'] = isset($data['min_y']) ? $data['min_y'] : null;
-        $this->container['max_x'] = isset($data['max_x']) ? $data['max_x'] : null;
-        $this->container['max_y'] = isset($data['max_y']) ? $data['max_y'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
+        $this->container['html'] = isset($data['html']) ? $data['html'] : null;
     }
 
     /**
@@ -185,106 +179,85 @@ class NationsRect implements ArrayAccess
 
 
     /**
-     * Gets world
-     * @return \Swagger\Client\Model\World
+     * Gets id
+     * @return string
      */
-    public function getWorld()
+    public function getId()
     {
-        return $this->container['world'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets world
-     * @param \Swagger\Client\Model\World $world
+     * Sets id
+     * @param string $id The id of the web books.
      * @return $this
      */
-    public function setWorld($world)
+    public function setId($id)
     {
-        $this->container['world'] = $world;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets min_x
-     * @return float
+     * Gets title
+     * @return string
      */
-    public function getMinX()
+    public function getTitle()
     {
-        return $this->container['min_x'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets min_x
-     * @param float $min_x The minimum x coordinate of this rect.
+     * Sets title
+     * @param string $title The title of the web book.
      * @return $this
      */
-    public function setMinX($min_x)
+    public function setTitle($title)
     {
-        $this->container['min_x'] = $min_x;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets min_y
-     * @return float
+     * Gets lines
+     * @return string[]
      */
-    public function getMinY()
+    public function getLines()
     {
-        return $this->container['min_y'];
+        return $this->container['lines'];
     }
 
     /**
-     * Sets min_y
-     * @param float $min_y The minimum y coordinate of this rect.
+     * Sets lines
+     * @param string[] $lines The lines of text in the web book.
      * @return $this
      */
-    public function setMinY($min_y)
+    public function setLines($lines)
     {
-        $this->container['min_y'] = $min_y;
+        $this->container['lines'] = $lines;
 
         return $this;
     }
 
     /**
-     * Gets max_x
-     * @return float
+     * Gets html
+     * @return string
      */
-    public function getMaxX()
+    public function getHtml()
     {
-        return $this->container['max_x'];
+        return $this->container['html'];
     }
 
     /**
-     * Sets max_x
-     * @param float $max_x The maximum x coordinate of this rect.
+     * Sets html
+     * @param string $html The html content of the book.
      * @return $this
      */
-    public function setMaxX($max_x)
+    public function setHtml($html)
     {
-        $this->container['max_x'] = $max_x;
-
-        return $this;
-    }
-
-    /**
-     * Gets max_y
-     * @return float
-     */
-    public function getMaxY()
-    {
-        return $this->container['max_y'];
-    }
-
-    /**
-     * Sets max_y
-     * @param float $max_y The maximum y coordinate of this rect.
-     * @return $this
-     */
-    public function setMaxY($max_y)
-    {
-        $this->container['max_y'] = $max_y;
+        $this->container['html'] = $html;
 
         return $this;
     }

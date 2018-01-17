@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse400Test
+ * WebBooksResponseTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * InlineResponse400Test Class Doc Comment
+ * WebBooksResponseTest Class Doc Comment
  *
  * @category    Class */
-// * @description InlineResponse400
+// * @description WebBooksResponse
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse400Test extends \PHPUnit_Framework_TestCase
+class WebBooksResponseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,16 +71,23 @@ class InlineResponse400Test extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "InlineResponse400"
+     * Test "WebBooksResponse"
      */
-    public function testInlineResponse400()
+    public function testWebBooksResponse()
     {
     }
 
     /**
-     * Test attribute "error"
+     * Test attribute "ok"
      */
-    public function testPropertyError()
+    public function testPropertyOk()
+    {
+    }
+
+    /**
+     * Test attribute "crates"
+     */
+    public function testPropertyCrates()
     {
     }
 }

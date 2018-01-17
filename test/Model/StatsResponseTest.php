@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsNationFullTest
+ * StatsResponseTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * NationsNationFullTest Class Doc Comment
+ * StatsResponseTest Class Doc Comment
  *
  * @category    Class */
-// * @description NationsNationFull
+// * @description StatsResponse
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsNationFullTest extends \PHPUnit_Framework_TestCase
+class StatsResponseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,107 +71,51 @@ class NationsNationFullTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "NationsNationFull"
+     * Test "StatsResponse"
      */
-    public function testNationsNationFull()
+    public function testStatsResponse()
     {
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "ok"
      */
-    public function testPropertyUuid()
+    public function testPropertyOk()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "tps"
      */
-    public function testPropertyName()
+    public function testPropertyTps()
     {
     }
 
     /**
-     * Test attribute "tag"
+     * Test attribute "players"
      */
-    public function testPropertyTag()
+    public function testPropertyPlayers()
     {
     }
 
     /**
-     * Test attribute "president"
+     * Test attribute "cpu"
      */
-    public function testPropertyPresident()
+    public function testPropertyCpu()
     {
     }
 
     /**
-     * Test attribute "real_name"
+     * Test attribute "memory"
      */
-    public function testPropertyRealName()
+    public function testPropertyMemory()
     {
     }
 
     /**
-     * Test attribute "upkeep"
+     * Test attribute "disk"
      */
-    public function testPropertyUpkeep()
-    {
-    }
-
-    /**
-     * Test attribute "taxes"
-     */
-    public function testPropertyTaxes()
-    {
-    }
-
-    /**
-     * Test attribute "flags"
-     */
-    public function testPropertyFlags()
-    {
-    }
-
-    /**
-     * Test attribute "citizens"
-     */
-    public function testPropertyCitizens()
-    {
-    }
-
-    /**
-     * Test attribute "ministers"
-     */
-    public function testPropertyMinisters()
-    {
-    }
-
-    /**
-     * Test attribute "staff"
-     */
-    public function testPropertyStaff()
-    {
-    }
-
-    /**
-     * Test attribute "spawns"
-     */
-    public function testPropertySpawns()
-    {
-    }
-
-    /**
-     * Test attribute "rects"
-     */
-    public function testPropertyRects()
-    {
-    }
-
-    /**
-     * Test attribute "zones"
-     */
-    public function testPropertyZones()
+    public function testPropertyDisk()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsNationResponse
+ * StatsResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * NationsNationResponse Class Doc Comment
+ * StatsResponse Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsNationResponse implements ArrayAccess
+class StatsResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class NationsNationResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NationsNationResponse';
+    protected static $swaggerModelName = 'StatsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,7 +55,11 @@ class NationsNationResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ok' => '\Swagger\Client\Model\Ok',
-        'nation' => '\Swagger\Client\Model\NationsNationFull'
+        'tps' => '\Swagger\Client\Model\Stat[]',
+        'players' => '\Swagger\Client\Model\Stat[]',
+        'cpu' => '\Swagger\Client\Model\Stat[]',
+        'memory' => '\Swagger\Client\Model\Stat[]',
+        'disk' => '\Swagger\Client\Model\Stat[]'
     ];
 
     /**
@@ -64,7 +68,11 @@ class NationsNationResponse implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'ok' => null,
-        'nation' => null
+        'tps' => null,
+        'players' => null,
+        'cpu' => null,
+        'memory' => null,
+        'disk' => null
     ];
 
     public static function swaggerTypes()
@@ -83,7 +91,11 @@ class NationsNationResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'ok' => 'ok',
-        'nation' => 'nation'
+        'tps' => 'tps',
+        'players' => 'players',
+        'cpu' => 'cpu',
+        'memory' => 'memory',
+        'disk' => 'disk'
     ];
 
 
@@ -93,7 +105,11 @@ class NationsNationResponse implements ArrayAccess
      */
     protected static $setters = [
         'ok' => 'setOk',
-        'nation' => 'setNation'
+        'tps' => 'setTps',
+        'players' => 'setPlayers',
+        'cpu' => 'setCpu',
+        'memory' => 'setMemory',
+        'disk' => 'setDisk'
     ];
 
 
@@ -103,7 +119,11 @@ class NationsNationResponse implements ArrayAccess
      */
     protected static $getters = [
         'ok' => 'getOk',
-        'nation' => 'getNation'
+        'tps' => 'getTps',
+        'players' => 'getPlayers',
+        'cpu' => 'getCpu',
+        'memory' => 'getMemory',
+        'disk' => 'getDisk'
     ];
 
     public static function attributeMap()
@@ -138,7 +158,11 @@ class NationsNationResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['nation'] = isset($data['nation']) ? $data['nation'] : null;
+        $this->container['tps'] = isset($data['tps']) ? $data['tps'] : null;
+        $this->container['players'] = isset($data['players']) ? $data['players'] : null;
+        $this->container['cpu'] = isset($data['cpu']) ? $data['cpu'] : null;
+        $this->container['memory'] = isset($data['memory']) ? $data['memory'] : null;
+        $this->container['disk'] = isset($data['disk']) ? $data['disk'] : null;
     }
 
     /**
@@ -188,22 +212,106 @@ class NationsNationResponse implements ArrayAccess
     }
 
     /**
-     * Gets nation
-     * @return \Swagger\Client\Model\NationsNationFull
+     * Gets tps
+     * @return \Swagger\Client\Model\Stat[]
      */
-    public function getNation()
+    public function getTps()
     {
-        return $this->container['nation'];
+        return $this->container['tps'];
     }
 
     /**
-     * Sets nation
-     * @param \Swagger\Client\Model\NationsNationFull $nation
+     * Sets tps
+     * @param \Swagger\Client\Model\Stat[] $tps Array of time and TPS values
      * @return $this
      */
-    public function setNation($nation)
+    public function setTps($tps)
     {
-        $this->container['nation'] = $nation;
+        $this->container['tps'] = $tps;
+
+        return $this;
+    }
+
+    /**
+     * Gets players
+     * @return \Swagger\Client\Model\Stat[]
+     */
+    public function getPlayers()
+    {
+        return $this->container['players'];
+    }
+
+    /**
+     * Sets players
+     * @param \Swagger\Client\Model\Stat[] $players Array of time and player count values
+     * @return $this
+     */
+    public function setPlayers($players)
+    {
+        $this->container['players'] = $players;
+
+        return $this;
+    }
+
+    /**
+     * Gets cpu
+     * @return \Swagger\Client\Model\Stat[]
+     */
+    public function getCpu()
+    {
+        return $this->container['cpu'];
+    }
+
+    /**
+     * Sets cpu
+     * @param \Swagger\Client\Model\Stat[] $cpu Array of time and CPU load values
+     * @return $this
+     */
+    public function setCpu($cpu)
+    {
+        $this->container['cpu'] = $cpu;
+
+        return $this;
+    }
+
+    /**
+     * Gets memory
+     * @return \Swagger\Client\Model\Stat[]
+     */
+    public function getMemory()
+    {
+        return $this->container['memory'];
+    }
+
+    /**
+     * Sets memory
+     * @param \Swagger\Client\Model\Stat[] $memory Array of time and memory load values
+     * @return $this
+     */
+    public function setMemory($memory)
+    {
+        $this->container['memory'] = $memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets disk
+     * @return \Swagger\Client\Model\Stat[]
+     */
+    public function getDisk()
+    {
+        return $this->container['disk'];
+    }
+
+    /**
+     * Sets disk
+     * @param \Swagger\Client\Model\Stat[] $disk Array of time and disk usage values
+     * @return $this
+     */
+    public function setDisk($disk)
+    {
+        $this->container['disk'] = $disk;
 
         return $this;
     }
