@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse400
+ * CreateWebBookRequest
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * InlineResponse400 Class Doc Comment
+ * CreateWebBookRequest Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse400 implements ArrayAccess
+class CreateWebBookRequest implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,14 +47,16 @@ class InlineResponse400 implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_400';
+    protected static $swaggerModelName = 'CreateWebBookRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => 'string'
+        'id' => 'string',
+        'title' => 'string',
+        'lines' => 'string[]'
     ];
 
     /**
@@ -62,7 +64,9 @@ class InlineResponse400 implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null
+        'id' => null,
+        'title' => null,
+        'lines' => null
     ];
 
     public static function swaggerTypes()
@@ -80,7 +84,9 @@ class InlineResponse400 implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error'
+        'id' => 'id',
+        'title' => 'title',
+        'lines' => 'lines'
     ];
 
 
@@ -89,7 +95,9 @@ class InlineResponse400 implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError'
+        'id' => 'setId',
+        'title' => 'setTitle',
+        'lines' => 'setLines'
     ];
 
 
@@ -98,7 +106,9 @@ class InlineResponse400 implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError'
+        'id' => 'getId',
+        'title' => 'getTitle',
+        'lines' => 'getLines'
     ];
 
     public static function attributeMap()
@@ -132,7 +142,9 @@ class InlineResponse400 implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
     }
 
     /**
@@ -161,22 +173,64 @@ class InlineResponse400 implements ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets id
      * @return string
      */
-    public function getError()
+    public function getId()
     {
-        return $this->container['error'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets error
-     * @param string $error A description of the type of error that occured.
+     * Sets id
+     * @param string $id The unique id of the web book.
      * @return $this
      */
-    public function setError($error)
+    public function setId($id)
     {
-        $this->container['error'] = $error;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     * @param string $title The title of the web book.
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets lines
+     * @return string[]
+     */
+    public function getLines()
+    {
+        return $this->container['lines'];
+    }
+
+    /**
+     * Sets lines
+     * @param string[] $lines The lines that make up the content of the book.
+     * @return $this
+     */
+    public function setLines($lines)
+    {
+        $this->container['lines'] = $lines;
 
         return $this;
     }

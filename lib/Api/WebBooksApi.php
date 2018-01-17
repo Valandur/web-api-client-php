@@ -1,6 +1,6 @@
 <?php
 /**
- * BlockApi
+ * WebBooksApi
  * PHP version 5
  *
  * @category Class
@@ -34,14 +34,14 @@ use \Swagger\Client\Configuration;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * BlockApi Class Doc Comment
+ * WebBooksApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BlockApi
+class WebBooksApi
 {
     /**
      * API Client
@@ -79,7 +79,7 @@ class BlockApi
      *
      * @param \Swagger\Client\ApiClient $apiClient set the API client
      *
-     * @return BlockApi
+     * @return WebBooksApi
      */
     public function setApiClient(\Swagger\Client\ApiClient $apiClient)
     {
@@ -88,37 +88,134 @@ class BlockApi
     }
 
     /**
-     * Operation cancelBlockOperation
+     * Operation createBook
      *
-     * Cancel block operation
+     * Create web book
      *
-     * @param string $uuid The uuid of the block operation. (required)
+     * @param \Swagger\Client\Model\CreateWebBookRequest $create_web_book_request  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\BlockOperationResponse
+     * @return \Swagger\Client\Model\WebBooksResponse1
      */
-    public function cancelBlockOperation($uuid)
+    public function createBook($create_web_book_request)
     {
-        list($response) = $this->cancelBlockOperationWithHttpInfo($uuid);
+        list($response) = $this->createBookWithHttpInfo($create_web_book_request);
         return $response;
     }
 
     /**
-     * Operation cancelBlockOperationWithHttpInfo
+     * Operation createBookWithHttpInfo
      *
-     * Cancel block operation
+     * Create web book
      *
-     * @param string $uuid The uuid of the block operation. (required)
+     * @param \Swagger\Client\Model\CreateWebBookRequest $create_web_book_request  (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\BlockOperationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\WebBooksResponse1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelBlockOperationWithHttpInfo($uuid)
+    public function createBookWithHttpInfo($create_web_book_request)
     {
-        // verify the required parameter 'uuid' is set
-        if ($uuid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $uuid when calling cancelBlockOperation');
+        // verify the required parameter 'create_web_book_request' is set
+        if ($create_web_book_request === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $create_web_book_request when calling createBook');
         }
         // parse inputs
-        $resourcePath = "/block/op/{uuid}";
+        $resourcePath = "/webbooks/book";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
+
+        // body params
+        $_tempBody = null;
+        if (isset($create_web_book_request)) {
+            $_tempBody = $create_web_book_request;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-webapi-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-webapi-key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('key');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\WebBooksResponse1',
+                '/webbooks/book'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\WebBooksResponse1', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\WebBooksResponse1', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteBook
+     *
+     * Delete a web book
+     *
+     * @param string $id The id of the web book to delete. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return void
+     */
+    public function deleteBook($id)
+    {
+        list($response) = $this->deleteBookWithHttpInfo($id);
+        return $response;
+    }
+
+    /**
+     * Operation deleteBookWithHttpInfo
+     *
+     * Delete a web book
+     *
+     * @param string $id The id of the web book to delete. (required)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteBookWithHttpInfo($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling deleteBook');
+        }
+        // parse inputs
+        $resourcePath = "/webbooks/book/{id}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -130,10 +227,10 @@ class BlockApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
         // path params
-        if ($uuid !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                "{" . "uuid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($uuid),
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
                 $resourcePath
             );
         }
@@ -162,17 +259,13 @@ class BlockApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\BlockOperationResponse',
-                '/block/op/{uuid}'
+                null,
+                '/webbooks/book/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\BlockOperationResponse', $httpHeader), $statusCode, $httpHeader];
+            return [null, $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\BlockOperationResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
                 case 400:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
                     $e->setResponseObject($data);
@@ -192,43 +285,37 @@ class BlockApi
     }
 
     /**
-     * Operation changeBlockOperation
+     * Operation getBook
      *
-     * Modify block operation
+     * Detailed web book info
      *
-     * @param string $uuid The uuid of the block operation. (required)
-     * @param \Swagger\Client\Model\Data $data The new data applied to the block operation. (required)
+     * @param string $id The id of the web book to get detailed information about. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\BlockOperationResponse
+     * @return \Swagger\Client\Model\WebBooksResponse1
      */
-    public function changeBlockOperation($uuid, $data)
+    public function getBook($id)
     {
-        list($response) = $this->changeBlockOperationWithHttpInfo($uuid, $data);
+        list($response) = $this->getBookWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation changeBlockOperationWithHttpInfo
+     * Operation getBookWithHttpInfo
      *
-     * Modify block operation
+     * Detailed web book info
      *
-     * @param string $uuid The uuid of the block operation. (required)
-     * @param \Swagger\Client\Model\Data $data The new data applied to the block operation. (required)
+     * @param string $id The id of the web book to get detailed information about. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\BlockOperationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\WebBooksResponse1, HTTP status code, HTTP response headers (array of strings)
      */
-    public function changeBlockOperationWithHttpInfo($uuid, $data)
+    public function getBookWithHttpInfo($id)
     {
-        // verify the required parameter 'uuid' is set
-        if ($uuid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $uuid when calling changeBlockOperation');
-        }
-        // verify the required parameter 'data' is set
-        if ($data === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $data when calling changeBlockOperation');
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling getBook');
         }
         // parse inputs
-        $resourcePath = "/block/op/{uuid}";
+        $resourcePath = "/webbooks/book/{id}";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -240,161 +327,10 @@ class BlockApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
         // path params
-        if ($uuid !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                "{" . "uuid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($uuid),
-                $resourcePath
-            );
-        }
-        // body params
-        $_tempBody = null;
-        if (isset($data)) {
-            $_tempBody = $data;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-webapi-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-webapi-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('key');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\BlockOperationResponse',
-                '/block/op/{uuid}'
-            );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\BlockOperationResponse', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\BlockOperationResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getBlock
-     *
-     * Get one block
-     *
-     * @param string $world The uuid of the world the block is in. (required)
-     * @param int $x The x-coordinate of the block. (required)
-     * @param int $y The y-coordinate of the block. (required)
-     * @param int $z The z-coordinate of the block. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\SingleBlock
-     */
-    public function getBlock($world, $x, $y, $z)
-    {
-        list($response) = $this->getBlockWithHttpInfo($world, $x, $y, $z);
-        return $response;
-    }
-
-    /**
-     * Operation getBlockWithHttpInfo
-     *
-     * Get one block
-     *
-     * @param string $world The uuid of the world the block is in. (required)
-     * @param int $x The x-coordinate of the block. (required)
-     * @param int $y The y-coordinate of the block. (required)
-     * @param int $z The z-coordinate of the block. (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\SingleBlock, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getBlockWithHttpInfo($world, $x, $y, $z)
-    {
-        // verify the required parameter 'world' is set
-        if ($world === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $world when calling getBlock');
-        }
-        // verify the required parameter 'x' is set
-        if ($x === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $x when calling getBlock');
-        }
-        // verify the required parameter 'y' is set
-        if ($y === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $y when calling getBlock');
-        }
-        // verify the required parameter 'z' is set
-        if ($z === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $z when calling getBlock');
-        }
-        // parse inputs
-        $resourcePath = "/block/{world}/{x}/{y}/{z}";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
-
-        // path params
-        if ($world !== null) {
-            $resourcePath = str_replace(
-                "{" . "world" . "}",
-                $this->apiClient->getSerializer()->toPathValue($world),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($x !== null) {
-            $resourcePath = str_replace(
-                "{" . "x" . "}",
-                $this->apiClient->getSerializer()->toPathValue($x),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($y !== null) {
-            $resourcePath = str_replace(
-                "{" . "y" . "}",
-                $this->apiClient->getSerializer()->toPathValue($y),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($z !== null) {
-            $resourcePath = str_replace(
-                "{" . "z" . "}",
-                $this->apiClient->getSerializer()->toPathValue($z),
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
                 $resourcePath
             );
         }
@@ -423,15 +359,15 @@ class BlockApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\SingleBlock',
-                '/block/{world}/{x}/{y}/{z}'
+                '\Swagger\Client\Model\WebBooksResponse1',
+                '/webbooks/book/{id}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\SingleBlock', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\WebBooksResponse1', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\SingleBlock', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\WebBooksResponse1', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -453,37 +389,37 @@ class BlockApi
     }
 
     /**
-     * Operation getBlockOperation
+     * Operation getBookHtml
      *
-     * Block operation details
+     * Web Book HTML
      *
-     * @param string $uuid The uuid of the block operation. (required)
+     * @param string $id The id of the web book to get the html for. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\BlockOperationResponse
+     * @return string
      */
-    public function getBlockOperation($uuid)
+    public function getBookHtml($id)
     {
-        list($response) = $this->getBlockOperationWithHttpInfo($uuid);
+        list($response) = $this->getBookHtmlWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation getBlockOperationWithHttpInfo
+     * Operation getBookHtmlWithHttpInfo
      *
-     * Block operation details
+     * Web Book HTML
      *
-     * @param string $uuid The uuid of the block operation. (required)
+     * @param string $id The id of the web book to get the html for. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\BlockOperationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlockOperationWithHttpInfo($uuid)
+    public function getBookHtmlWithHttpInfo($id)
     {
-        // verify the required parameter 'uuid' is set
-        if ($uuid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $uuid when calling getBlockOperation');
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling getBookHtml');
         }
         // parse inputs
-        $resourcePath = "/block/op/{uuid}";
+        $resourcePath = "/webbooks/book/{id}/html";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -495,10 +431,10 @@ class BlockApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
         // path params
-        if ($uuid !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                "{" . "uuid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($uuid),
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
                 $resourcePath
             );
         }
@@ -527,18 +463,26 @@ class BlockApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\BlockOperationResponse',
-                '/block/op/{uuid}'
+                'string',
+                '/webbooks/book/{id}/html'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\BlockOperationResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\BlockOperationResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
@@ -549,31 +493,37 @@ class BlockApi
     }
 
     /**
-     * Operation getBlockOperations
+     * Operation getBookHtmlPost
      *
-     * List block operations
+     * Web Book HTML
      *
+     * @param string $id The id of the web book to get the html for. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\BlockOperationsList
+     * @return string
      */
-    public function getBlockOperations()
+    public function getBookHtmlPost($id)
     {
-        list($response) = $this->getBlockOperationsWithHttpInfo();
+        list($response) = $this->getBookHtmlPostWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation getBlockOperationsWithHttpInfo
+     * Operation getBookHtmlPostWithHttpInfo
      *
-     * List block operations
+     * Web Book HTML
      *
+     * @param string $id The id of the web book to get the html for. (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\BlockOperationsList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBlockOperationsWithHttpInfo()
+    public function getBookHtmlPostWithHttpInfo($id)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $id when calling getBookHtmlPost');
+        }
         // parse inputs
-        $resourcePath = "/block/op";
+        $resourcePath = "/webbooks/book/{id}/html";
         $httpBody = '';
         $queryParams = [];
         $headerParams = [];
@@ -584,98 +534,13 @@ class BlockApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-webapi-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-webapi-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('key');
-        if (strlen($apiKey) !== 0) {
-            $queryParams['key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\Swagger\Client\Model\BlockOperationsList',
-                '/block/op'
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                "{" . "id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($id),
+                $resourcePath
             );
-
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\BlockOperationsList', $httpHeader), $statusCode, $httpHeader];
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\BlockOperationsList', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation startBlockOperation
-     *
-     * Create block operation
-     *
-     * @param \Swagger\Client\Model\BlockOperationNew[] $request The requested changes to blocks (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return \Swagger\Client\Model\BlockOperationResponse
-     */
-    public function startBlockOperation($request)
-    {
-        list($response) = $this->startBlockOperationWithHttpInfo($request);
-        return $response;
-    }
-
-    /**
-     * Operation startBlockOperationWithHttpInfo
-     *
-     * Create block operation
-     *
-     * @param \Swagger\Client\Model\BlockOperationNew[] $request The requested changes to blocks (required)
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @return array of \Swagger\Client\Model\BlockOperationResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function startBlockOperationWithHttpInfo($request)
-    {
-        // verify the required parameter 'request' is set
-        if ($request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $request when calling startBlockOperation');
-        }
-        // parse inputs
-        $resourcePath = "/block/op";
-        $httpBody = '';
-        $queryParams = [];
-        $headerParams = [];
-        $formParams = [];
-        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
-
-        // body params
-        $_tempBody = null;
-        if (isset($request)) {
-            $_tempBody = $request;
         }
 
         // for model (json/xml)
@@ -702,15 +567,15 @@ class BlockApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\Swagger\Client\Model\BlockOperationResponse',
-                '/block/op'
+                'string',
+                '/webbooks/book/{id}/html'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\BlockOperationResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, 'string', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\BlockOperationResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'string', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -725,7 +590,91 @@ class BlockApi
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
-                case 406:
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getBooks
+     *
+     * Books list
+     *
+     * @param string $details Pass this parameter to receive the full details for each web book. (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return \Swagger\Client\Model\WebBooksResponse
+     */
+    public function getBooks($details = null)
+    {
+        list($response) = $this->getBooksWithHttpInfo($details);
+        return $response;
+    }
+
+    /**
+     * Operation getBooksWithHttpInfo
+     *
+     * Books list
+     *
+     * @param string $details Pass this parameter to receive the full details for each web book. (optional)
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @return array of \Swagger\Client\Model\WebBooksResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getBooksWithHttpInfo($details = null)
+    {
+        // parse inputs
+        $resourcePath = "/webbooks/book";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json', 'application/xml']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
+
+        // query params
+        if ($details !== null) {
+            $queryParams['details'] = $this->apiClient->getSerializer()->toQueryValue($details);
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-webapi-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-webapi-key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('key');
+        if (strlen($apiKey) !== 0) {
+            $queryParams['key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\Swagger\Client\Model\WebBooksResponse',
+                '/webbooks/book'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\WebBooksResponse', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\WebBooksResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\Swagger\Client\Model\Error400', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;

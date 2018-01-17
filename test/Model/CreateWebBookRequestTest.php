@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsZoneTest
+ * CreateWebBookRequestTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * NationsZoneTest Class Doc Comment
+ * CreateWebBookRequestTest Class Doc Comment
  *
  * @category    Class */
-// * @description NationsZone
+// * @description CreateWebBookRequest
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsZoneTest extends \PHPUnit_Framework_TestCase
+class CreateWebBookRequestTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,65 +71,30 @@ class NationsZoneTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "NationsZone"
+     * Test "CreateWebBookRequest"
      */
-    public function testNationsZone()
+    public function testCreateWebBookRequest()
     {
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "id"
      */
-    public function testPropertyUuid()
+    public function testPropertyId()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "title"
      */
-    public function testPropertyName()
+    public function testPropertyTitle()
     {
     }
 
     /**
-     * Test attribute "rect"
+     * Test attribute "lines"
      */
-    public function testPropertyRect()
-    {
-    }
-
-    /**
-     * Test attribute "owner"
-     */
-    public function testPropertyOwner()
-    {
-    }
-
-    /**
-     * Test attribute "co_owners"
-     */
-    public function testPropertyCoOwners()
-    {
-    }
-
-    /**
-     * Test attribute "flags"
-     */
-    public function testPropertyFlags()
-    {
-    }
-
-    /**
-     * Test attribute "for_sale"
-     */
-    public function testPropertyForSale()
-    {
-    }
-
-    /**
-     * Test attribute "price"
-     */
-    public function testPropertyPrice()
+    public function testPropertyLines()
     {
     }
 }

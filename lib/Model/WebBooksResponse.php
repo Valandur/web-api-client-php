@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsNation
+ * WebBooksResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * NationsNation Class Doc Comment
+ * WebBooksResponse Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsNation implements ArrayAccess
+class WebBooksResponse implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,15 @@ class NationsNation implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NationsNation';
+    protected static $swaggerModelName = 'WebBooksResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'uuid' => 'string',
-        'name' => 'string',
-        'tag' => 'string',
-        'president' => '\Swagger\Client\Model\Player'
+        'ok' => '\Swagger\Client\Model\Ok',
+        'crates' => '\Swagger\Client\Model\WebBook[]'
     ];
 
     /**
@@ -65,10 +63,8 @@ class NationsNation implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'uuid' => null,
-        'name' => null,
-        'tag' => null,
-        'president' => null
+        'ok' => null,
+        'crates' => null
     ];
 
     public static function swaggerTypes()
@@ -86,10 +82,8 @@ class NationsNation implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid',
-        'name' => 'name',
-        'tag' => 'tag',
-        'president' => 'president'
+        'ok' => 'ok',
+        'crates' => 'crates'
     ];
 
 
@@ -98,10 +92,8 @@ class NationsNation implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid',
-        'name' => 'setName',
-        'tag' => 'setTag',
-        'president' => 'setPresident'
+        'ok' => 'setOk',
+        'crates' => 'setCrates'
     ];
 
 
@@ -110,10 +102,8 @@ class NationsNation implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid',
-        'name' => 'getName',
-        'tag' => 'getTag',
-        'president' => 'getPresident'
+        'ok' => 'getOk',
+        'crates' => 'getCrates'
     ];
 
     public static function attributeMap()
@@ -147,10 +137,8 @@ class NationsNation implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
-        $this->container['president'] = isset($data['president']) ? $data['president'] : null;
+        $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
+        $this->container['crates'] = isset($data['crates']) ? $data['crates'] : null;
     }
 
     /**
@@ -179,85 +167,43 @@ class NationsNation implements ArrayAccess
 
 
     /**
-     * Gets uuid
-     * @return string
+     * Gets ok
+     * @return \Swagger\Client\Model\Ok
      */
-    public function getUuid()
+    public function getOk()
     {
-        return $this->container['uuid'];
+        return $this->container['ok'];
     }
 
     /**
-     * Sets uuid
-     * @param string $uuid The unique id of the nation.
+     * Sets ok
+     * @param \Swagger\Client\Model\Ok $ok
      * @return $this
      */
-    public function setUuid($uuid)
+    public function setOk($ok)
     {
-        $this->container['uuid'] = $uuid;
+        $this->container['ok'] = $ok;
 
         return $this;
     }
 
     /**
-     * Gets name
-     * @return string
+     * Gets crates
+     * @return \Swagger\Client\Model\WebBook[]
      */
-    public function getName()
+    public function getCrates()
     {
-        return $this->container['name'];
+        return $this->container['crates'];
     }
 
     /**
-     * Sets name
-     * @param string $name The name of the nation.
+     * Sets crates
+     * @param \Swagger\Client\Model\WebBook[] $crates A list of web books.
      * @return $this
      */
-    public function setName($name)
+    public function setCrates($crates)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets tag
-     * @return string
-     */
-    public function getTag()
-    {
-        return $this->container['tag'];
-    }
-
-    /**
-     * Sets tag
-     * @param string $tag The tag of the nation.
-     * @return $this
-     */
-    public function setTag($tag)
-    {
-        $this->container['tag'] = $tag;
-
-        return $this;
-    }
-
-    /**
-     * Gets president
-     * @return \Swagger\Client\Model\Player
-     */
-    public function getPresident()
-    {
-        return $this->container['president'];
-    }
-
-    /**
-     * Sets president
-     * @param \Swagger\Client\Model\Player $president
-     * @return $this
-     */
-    public function setPresident($president)
-    {
-        $this->container['president'] = $president;
+        $this->container['crates'] = $crates;
 
         return $this;
     }

@@ -1,11 +1,10 @@
-# ExecuteTileEntityMethodResponse
+# ServerPropertiesList
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ok** | [**\Swagger\Client\Model\Ok**](Ok.md) |  | [optional] 
-**tile_entity** | [**\Swagger\Client\Model\TileEntityFull**](TileEntityFull.md) |  | [optional] 
-**result** | [**\Swagger\Client\Model\RawResponse**](RawResponse.md) |  | [optional] 
+**properties** | [**\Swagger\Client\Model\Property[]**](Property.md) | A list of server properties. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

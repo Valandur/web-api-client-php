@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsNationTest
+ * WebBooksResponse1Test
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * NationsNationTest Class Doc Comment
+ * WebBooksResponse1Test Class Doc Comment
  *
  * @category    Class */
-// * @description NationsNation
+// * @description WebBooksResponse1
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsNationTest extends \PHPUnit_Framework_TestCase
+class WebBooksResponse1Test extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,37 +71,23 @@ class NationsNationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "NationsNation"
+     * Test "WebBooksResponse1"
      */
-    public function testNationsNation()
+    public function testWebBooksResponse1()
     {
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "ok"
      */
-    public function testPropertyUuid()
+    public function testPropertyOk()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "crate"
      */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "tag"
-     */
-    public function testPropertyTag()
-    {
-    }
-
-    /**
-     * Test attribute "president"
-     */
-    public function testPropertyPresident()
+    public function testPropertyCrate()
     {
     }
 }

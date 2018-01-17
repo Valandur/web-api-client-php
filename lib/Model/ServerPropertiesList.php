@@ -1,6 +1,6 @@
 <?php
 /**
- * ExecuteTileEntityMethodResponse
+ * ServerPropertiesList
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * ExecuteTileEntityMethodResponse Class Doc Comment
+ * ServerPropertiesList Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ExecuteTileEntityMethodResponse implements ArrayAccess
+class ServerPropertiesList implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ExecuteTileEntityMethodResponse';
+    protected static $swaggerModelName = 'ServerPropertiesList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +55,7 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'ok' => '\Swagger\Client\Model\Ok',
-        'tile_entity' => '\Swagger\Client\Model\TileEntityFull',
-        'result' => '\Swagger\Client\Model\RawResponse'
+        'properties' => '\Swagger\Client\Model\Property[]'
     ];
 
     /**
@@ -65,8 +64,7 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'ok' => null,
-        'tile_entity' => null,
-        'result' => null
+        'properties' => null
     ];
 
     public static function swaggerTypes()
@@ -85,8 +83,7 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'ok' => 'ok',
-        'tile_entity' => 'tileEntity',
-        'result' => 'result'
+        'properties' => 'properties'
     ];
 
 
@@ -96,8 +93,7 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
      */
     protected static $setters = [
         'ok' => 'setOk',
-        'tile_entity' => 'setTileEntity',
-        'result' => 'setResult'
+        'properties' => 'setProperties'
     ];
 
 
@@ -107,8 +103,7 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
      */
     protected static $getters = [
         'ok' => 'getOk',
-        'tile_entity' => 'getTileEntity',
-        'result' => 'getResult'
+        'properties' => 'getProperties'
     ];
 
     public static function attributeMap()
@@ -143,8 +138,7 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['tile_entity'] = isset($data['tile_entity']) ? $data['tile_entity'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
     }
 
     /**
@@ -194,43 +188,22 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
     }
 
     /**
-     * Gets tile_entity
-     * @return \Swagger\Client\Model\TileEntityFull
+     * Gets properties
+     * @return \Swagger\Client\Model\Property[]
      */
-    public function getTileEntity()
+    public function getProperties()
     {
-        return $this->container['tile_entity'];
+        return $this->container['properties'];
     }
 
     /**
-     * Sets tile_entity
-     * @param \Swagger\Client\Model\TileEntityFull $tile_entity
+     * Sets properties
+     * @param \Swagger\Client\Model\Property[] $properties A list of server properties.
      * @return $this
      */
-    public function setTileEntity($tile_entity)
+    public function setProperties($properties)
     {
-        $this->container['tile_entity'] = $tile_entity;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     * @return \Swagger\Client\Model\RawResponse
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     * @param \Swagger\Client\Model\RawResponse $result
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $this->container['result'] = $result;
+        $this->container['properties'] = $properties;
 
         return $this;
     }

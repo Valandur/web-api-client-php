@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsZone
+ * Error400
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * NationsZone Class Doc Comment
+ * Error400 Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsZone implements ArrayAccess
+class Error400 implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,21 +47,14 @@ class NationsZone implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NationsZone';
+    protected static $swaggerModelName = 'Error400';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'uuid' => 'string',
-        'name' => 'string',
-        'rect' => '\Swagger\Client\Model\NationsRect',
-        'owner' => '\Swagger\Client\Model\Player',
-        'co_owners' => '\Swagger\Client\Model\Player[]',
-        'flags' => 'object',
-        'for_sale' => 'bool',
-        'price' => 'string'
+        'error' => 'string'
     ];
 
     /**
@@ -69,14 +62,7 @@ class NationsZone implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'uuid' => null,
-        'name' => null,
-        'rect' => null,
-        'owner' => null,
-        'co_owners' => null,
-        'flags' => null,
-        'for_sale' => null,
-        'price' => null
+        'error' => null
     ];
 
     public static function swaggerTypes()
@@ -94,14 +80,7 @@ class NationsZone implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid',
-        'name' => 'name',
-        'rect' => 'rect',
-        'owner' => 'owner',
-        'co_owners' => 'coOwners',
-        'flags' => 'flags',
-        'for_sale' => 'forSale',
-        'price' => 'price'
+        'error' => 'error'
     ];
 
 
@@ -110,14 +89,7 @@ class NationsZone implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid',
-        'name' => 'setName',
-        'rect' => 'setRect',
-        'owner' => 'setOwner',
-        'co_owners' => 'setCoOwners',
-        'flags' => 'setFlags',
-        'for_sale' => 'setForSale',
-        'price' => 'setPrice'
+        'error' => 'setError'
     ];
 
 
@@ -126,14 +98,7 @@ class NationsZone implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid',
-        'name' => 'getName',
-        'rect' => 'getRect',
-        'owner' => 'getOwner',
-        'co_owners' => 'getCoOwners',
-        'flags' => 'getFlags',
-        'for_sale' => 'getForSale',
-        'price' => 'getPrice'
+        'error' => 'getError'
     ];
 
     public static function attributeMap()
@@ -167,14 +132,7 @@ class NationsZone implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['rect'] = isset($data['rect']) ? $data['rect'] : null;
-        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
-        $this->container['co_owners'] = isset($data['co_owners']) ? $data['co_owners'] : null;
-        $this->container['flags'] = isset($data['flags']) ? $data['flags'] : null;
-        $this->container['for_sale'] = isset($data['for_sale']) ? $data['for_sale'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
     }
 
     /**
@@ -203,169 +161,22 @@ class NationsZone implements ArrayAccess
 
 
     /**
-     * Gets uuid
+     * Gets error
      * @return string
      */
-    public function getUuid()
+    public function getError()
     {
-        return $this->container['uuid'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets uuid
-     * @param string $uuid The unique uuid of this zone.
+     * Sets error
+     * @param string $error A description of the type of error that occured.
      * @return $this
      */
-    public function setUuid($uuid)
+    public function setError($error)
     {
-        $this->container['uuid'] = $uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     * @param string $name The name of the zone.
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rect
-     * @return \Swagger\Client\Model\NationsRect
-     */
-    public function getRect()
-    {
-        return $this->container['rect'];
-    }
-
-    /**
-     * Sets rect
-     * @param \Swagger\Client\Model\NationsRect $rect
-     * @return $this
-     */
-    public function setRect($rect)
-    {
-        $this->container['rect'] = $rect;
-
-        return $this;
-    }
-
-    /**
-     * Gets owner
-     * @return \Swagger\Client\Model\Player
-     */
-    public function getOwner()
-    {
-        return $this->container['owner'];
-    }
-
-    /**
-     * Sets owner
-     * @param \Swagger\Client\Model\Player $owner
-     * @return $this
-     */
-    public function setOwner($owner)
-    {
-        $this->container['owner'] = $owner;
-
-        return $this;
-    }
-
-    /**
-     * Gets co_owners
-     * @return \Swagger\Client\Model\Player[]
-     */
-    public function getCoOwners()
-    {
-        return $this->container['co_owners'];
-    }
-
-    /**
-     * Sets co_owners
-     * @param \Swagger\Client\Model\Player[] $co_owners The list of co-owners of this zone.
-     * @return $this
-     */
-    public function setCoOwners($co_owners)
-    {
-        $this->container['co_owners'] = $co_owners;
-
-        return $this;
-    }
-
-    /**
-     * Gets flags
-     * @return object
-     */
-    public function getFlags()
-    {
-        return $this->container['flags'];
-    }
-
-    /**
-     * Sets flags
-     * @param object $flags A map of boolean flags.
-     * @return $this
-     */
-    public function setFlags($flags)
-    {
-        $this->container['flags'] = $flags;
-
-        return $this;
-    }
-
-    /**
-     * Gets for_sale
-     * @return bool
-     */
-    public function getForSale()
-    {
-        return $this->container['for_sale'];
-    }
-
-    /**
-     * Sets for_sale
-     * @param bool $for_sale True if this zone is for sale, false otherwise.
-     * @return $this
-     */
-    public function setForSale($for_sale)
-    {
-        $this->container['for_sale'] = $for_sale;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     * @param string $price The price of this zone. **This is a string because this number might be too large to hold in a regular number object.**
-     * @return $this
-     */
-    public function setPrice($price)
-    {
-        $this->container['price'] = $price;
+        $this->container['error'] = $error;
 
         return $this;
     }

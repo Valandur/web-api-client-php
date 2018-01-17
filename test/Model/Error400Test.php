@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsNationResponseTest
+ * Error400Test
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * NationsNationResponseTest Class Doc Comment
+ * Error400Test Class Doc Comment
  *
  * @category    Class */
-// * @description NationsNationResponse
+// * @description Error400
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsNationResponseTest extends \PHPUnit_Framework_TestCase
+class Error400Test extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,23 +71,16 @@ class NationsNationResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "NationsNationResponse"
+     * Test "Error400"
      */
-    public function testNationsNationResponse()
+    public function testError400()
     {
     }
 
     /**
-     * Test attribute "ok"
+     * Test attribute "error"
      */
-    public function testPropertyOk()
-    {
-    }
-
-    /**
-     * Test attribute "nation"
-     */
-    public function testPropertyNation()
+    public function testPropertyError()
     {
     }
 }

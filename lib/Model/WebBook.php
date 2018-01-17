@@ -1,6 +1,6 @@
 <?php
 /**
- * NationsNationsResponse
+ * WebBook
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * NationsNationsResponse Class Doc Comment
+ * WebBook Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class NationsNationsResponse implements ArrayAccess
+class WebBook implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,15 +47,16 @@ class NationsNationsResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'NationsNationsResponse';
+    protected static $swaggerModelName = 'WebBook';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ok' => '\Swagger\Client\Model\Ok',
-        'nations' => '\Swagger\Client\Model\NationsNation[]'
+        'id' => 'string',
+        'title' => 'string',
+        'lines' => 'string[]'
     ];
 
     /**
@@ -63,8 +64,9 @@ class NationsNationsResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ok' => null,
-        'nations' => null
+        'id' => null,
+        'title' => null,
+        'lines' => null
     ];
 
     public static function swaggerTypes()
@@ -82,8 +84,9 @@ class NationsNationsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ok' => 'ok',
-        'nations' => 'nations'
+        'id' => 'id',
+        'title' => 'title',
+        'lines' => 'lines'
     ];
 
 
@@ -92,8 +95,9 @@ class NationsNationsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ok' => 'setOk',
-        'nations' => 'setNations'
+        'id' => 'setId',
+        'title' => 'setTitle',
+        'lines' => 'setLines'
     ];
 
 
@@ -102,8 +106,9 @@ class NationsNationsResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ok' => 'getOk',
-        'nations' => 'getNations'
+        'id' => 'getId',
+        'title' => 'getTitle',
+        'lines' => 'getLines'
     ];
 
     public static function attributeMap()
@@ -137,8 +142,9 @@ class NationsNationsResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['nations'] = isset($data['nations']) ? $data['nations'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
     }
 
     /**
@@ -167,43 +173,64 @@ class NationsNationsResponse implements ArrayAccess
 
 
     /**
-     * Gets ok
-     * @return \Swagger\Client\Model\Ok
+     * Gets id
+     * @return string
      */
-    public function getOk()
+    public function getId()
     {
-        return $this->container['ok'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets ok
-     * @param \Swagger\Client\Model\Ok $ok
+     * Sets id
+     * @param string $id The id of the web books.
      * @return $this
      */
-    public function setOk($ok)
+    public function setId($id)
     {
-        $this->container['ok'] = $ok;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets nations
-     * @return \Swagger\Client\Model\NationsNation[]
+     * Gets title
+     * @return string
      */
-    public function getNations()
+    public function getTitle()
     {
-        return $this->container['nations'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets nations
-     * @param \Swagger\Client\Model\NationsNation[] $nations A list of nations.
+     * Sets title
+     * @param string $title The title of the web book.
      * @return $this
      */
-    public function setNations($nations)
+    public function setTitle($title)
     {
-        $this->container['nations'] = $nations;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets lines
+     * @return string[]
+     */
+    public function getLines()
+    {
+        return $this->container['lines'];
+    }
+
+    /**
+     * Sets lines
+     * @param string[] $lines The lines of text in the web book.
+     * @return $this
+     */
+    public function setLines($lines)
+    {
+        $this->container['lines'] = $lines;
 
         return $this;
     }

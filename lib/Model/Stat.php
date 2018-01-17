@@ -1,6 +1,6 @@
 <?php
 /**
- * ExecuteTileEntityMethodResponse
+ * Stat
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace Swagger\Client\Model;
 use \ArrayAccess;
 
 /**
- * ExecuteTileEntityMethodResponse Class Doc Comment
+ * Stat Class Doc Comment
  *
  * @category    Class
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ExecuteTileEntityMethodResponse implements ArrayAccess
+class Stat implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,16 +47,15 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ExecuteTileEntityMethodResponse';
+    protected static $swaggerModelName = 'Stat';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ok' => '\Swagger\Client\Model\Ok',
-        'tile_entity' => '\Swagger\Client\Model\TileEntityFull',
-        'result' => '\Swagger\Client\Model\RawResponse'
+        'timestamp' => 'float',
+        'value' => 'float'
     ];
 
     /**
@@ -64,9 +63,8 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ok' => null,
-        'tile_entity' => null,
-        'result' => null
+        'timestamp' => 'long',
+        'value' => null
     ];
 
     public static function swaggerTypes()
@@ -84,9 +82,8 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ok' => 'ok',
-        'tile_entity' => 'tileEntity',
-        'result' => 'result'
+        'timestamp' => 'timestamp',
+        'value' => 'value'
     ];
 
 
@@ -95,9 +92,8 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ok' => 'setOk',
-        'tile_entity' => 'setTileEntity',
-        'result' => 'setResult'
+        'timestamp' => 'setTimestamp',
+        'value' => 'setValue'
     ];
 
 
@@ -106,9 +102,8 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ok' => 'getOk',
-        'tile_entity' => 'getTileEntity',
-        'result' => 'getResult'
+        'timestamp' => 'getTimestamp',
+        'value' => 'getValue'
     ];
 
     public static function attributeMap()
@@ -142,9 +137,8 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ok'] = isset($data['ok']) ? $data['ok'] : null;
-        $this->container['tile_entity'] = isset($data['tile_entity']) ? $data['tile_entity'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
+        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -173,64 +167,43 @@ class ExecuteTileEntityMethodResponse implements ArrayAccess
 
 
     /**
-     * Gets ok
-     * @return \Swagger\Client\Model\Ok
+     * Gets timestamp
+     * @return float
      */
-    public function getOk()
+    public function getTimestamp()
     {
-        return $this->container['ok'];
+        return $this->container['timestamp'];
     }
 
     /**
-     * Sets ok
-     * @param \Swagger\Client\Model\Ok $ok
+     * Sets timestamp
+     * @param float $timestamp The timestamp (epoch seconds) at which the value was recorded
      * @return $this
      */
-    public function setOk($ok)
+    public function setTimestamp($timestamp)
     {
-        $this->container['ok'] = $ok;
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }
 
     /**
-     * Gets tile_entity
-     * @return \Swagger\Client\Model\TileEntityFull
+     * Gets value
+     * @return float
      */
-    public function getTileEntity()
+    public function getValue()
     {
-        return $this->container['tile_entity'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets tile_entity
-     * @param \Swagger\Client\Model\TileEntityFull $tile_entity
+     * Sets value
+     * @param float $value The recorded value for this metric.
      * @return $this
      */
-    public function setTileEntity($tile_entity)
+    public function setValue($value)
     {
-        $this->container['tile_entity'] = $tile_entity;
-
-        return $this;
-    }
-
-    /**
-     * Gets result
-     * @return \Swagger\Client\Model\RawResponse
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     * @param \Swagger\Client\Model\RawResponse $result
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $this->container['result'] = $result;
+        $this->container['value'] = $value;
 
         return $this;
     }
