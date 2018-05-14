@@ -1,46 +1,54 @@
 # Swagger\Client\BlockApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelBlockOperation**](BlockApi.md#cancelBlockOperation) | **DELETE** /block/op/{uuid} | Cancel block operation
-[**changeBlockOperation**](BlockApi.md#changeBlockOperation) | **PUT** /block/op/{uuid} | Modify block operation
-[**getBlock**](BlockApi.md#getBlock) | **GET** /block/{world}/{x}/{y}/{z} | Get one block
-[**getBlockOperation**](BlockApi.md#getBlockOperation) | **GET** /block/op/{uuid} | Block operation details
-[**getBlockOperations**](BlockApi.md#getBlockOperations) | **GET** /block/op | List block operations
-[**startBlockOperation**](BlockApi.md#startBlockOperation) | **POST** /block/op | Create block operation
+[**createBlockOperation**](BlockApi.md#createBlockOperation) | **POST** /block/op | Create a block operation
+[**deleteBlockOperation**](BlockApi.md#deleteBlockOperation) | **DELETE** /block/op/{uuid} | Stop a block operation
+[**getBlock**](BlockApi.md#getBlock) | **GET** /block/{world}/{x}/{y}/{z} | Get a block
+[**getBlockOperation**](BlockApi.md#getBlockOperation) | **GET** /block/op/{uuid} | Get a block operation
+[**listBlockOperations**](BlockApi.md#listBlockOperations) | **GET** /block/op | List block operations
+[**modifyBlockOperation**](BlockApi.md#modifyBlockOperation) | **PUT** /block/op/{uuid} | Modify a block operation
 
 
-# **cancelBlockOperation**
-> \Swagger\Client\Model\BlockOperationResponse cancelBlockOperation($uuid)
+# **createBlockOperation**
+> \Swagger\Client\Model\BlockOperation createBlockOperation($body, $details, $accept, $pretty)
 
-Cancel block operation
+Create a block operation
 
-Cancel a pending or running block operation. **THIS DOES NOT UNDO THE BLOCK CHANGES**  > Required permission: block.op.delete
+Start a request to get or change blocks on the server.     **Required permissions:**    - **block.op.create**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\BlockApi();
-$uuid = "uuid_example"; // string | The uuid of the block operation.
+$apiInstance = new Swagger\Client\Api\BlockApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Swagger\Client\Model\CreateBlockOperationRequest(); // \Swagger\Client\Model\CreateBlockOperationRequest | 
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->cancelBlockOperation($uuid);
+    $result = $apiInstance->createBlockOperation($body, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BlockApi->cancelBlockOperation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockApi->createBlockOperation: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -49,15 +57,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the block operation. |
+ **body** | [**\Swagger\Client\Model\CreateBlockOperationRequest**](../Model/CreateBlockOperationRequest.md)|  | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\BlockOperationResponse**](../Model/BlockOperationResponse.md)
+[**\Swagger\Client\Model\BlockOperation**](../Model/BlockOperation.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -66,36 +77,43 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **changeBlockOperation**
-> \Swagger\Client\Model\BlockOperationResponse changeBlockOperation($uuid, $data)
+# **deleteBlockOperation**
+> \Swagger\Client\Model\BlockOperation deleteBlockOperation($uuid, $details, $accept, $pretty)
 
-Modify block operation
+Stop a block operation
 
-Modify an existing block operation to either pause or continue it.  > Required permission: block.op.change
+Cancel a pending or running block operation. **THIS DOES NOT UNDO THE BLOCK CHANGES**     **Required permissions:**    - **block.op.delete**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\BlockApi();
-$uuid = "uuid_example"; // string | The uuid of the block operation.
-$data = new \Swagger\Client\Model\Data(); // \Swagger\Client\Model\Data | The new data applied to the block operation.
+$apiInstance = new Swagger\Client\Api\BlockApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uuid = "uuid_example"; // string | The uuid of the block operation
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->changeBlockOperation($uuid, $data);
+    $result = $apiInstance->deleteBlockOperation($uuid, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BlockApi->changeBlockOperation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockApi->deleteBlockOperation: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -104,16 +122,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the block operation. |
- **data** | [**\Swagger\Client\Model\Data**](../Model/Data.md)| The new data applied to the block operation. |
+ **uuid** | [**string**](../Model/.md)| The uuid of the block operation |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\BlockOperationResponse**](../Model/BlockOperationResponse.md)
+[**\Swagger\Client\Model\BlockOperation**](../Model/BlockOperation.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -123,34 +143,42 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBlock**
-> \Swagger\Client\Model\SingleBlock getBlock($world, $x, $y, $z)
+> \Swagger\Client\Model\BlockState getBlock($world, $x, $y, $z, $details, $accept, $pretty)
 
-Get one block
+Get a block
 
-Gets information about one block in the world.  > Required permission: block.one
+Gets information about one block in the world.     **Required permissions:**    - **block.one**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\BlockApi();
-$world = "world_example"; // string | The uuid of the world the block is in.
-$x = 56; // int | The x-coordinate of the block.
-$y = 56; // int | The y-coordinate of the block.
-$z = 56; // int | The z-coordinate of the block.
+$apiInstance = new Swagger\Client\Api\BlockApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$world = "world_example"; // string | The uuid of the world to get the block from
+$x = 56; // int | The x-coordinate of the block
+$y = 56; // int | The y-coordinate of the block
+$z = 56; // int | The z-coordinate of the block
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->getBlock($world, $x, $y, $z);
+    $result = $apiInstance->getBlock($world, $x, $y, $z, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlockApi->getBlock: ', $e->getMessage(), PHP_EOL;
@@ -162,18 +190,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **world** | **string**| The uuid of the world the block is in. |
- **x** | **int**| The x-coordinate of the block. |
- **y** | **int**| The y-coordinate of the block. |
- **z** | **int**| The z-coordinate of the block. |
+ **world** | **string**| The uuid of the world to get the block from |
+ **x** | **int**| The x-coordinate of the block |
+ **y** | **int**| The y-coordinate of the block |
+ **z** | **int**| The z-coordinate of the block |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\SingleBlock**](../Model/SingleBlock.md)
+[**\Swagger\Client\Model\BlockState**](../Model/BlockState.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -183,31 +214,39 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBlockOperation**
-> \Swagger\Client\Model\BlockOperationResponse getBlockOperation($uuid)
+> \Swagger\Client\Model\BlockOperation getBlockOperation($uuid, $details, $accept, $pretty)
 
-Block operation details
+Get a block operation
 
-Gets details about a specific block operation  > Required permission: block.op.one
+Gets details about a specific block operation     **Required permissions:**    - **block.op.one**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\BlockApi();
-$uuid = "uuid_example"; // string | The uuid of the block operation.
+$apiInstance = new Swagger\Client\Api\BlockApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uuid = "uuid_example"; // string | The uuid of the block operation
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->getBlockOperation($uuid);
+    $result = $apiInstance->getBlockOperation($uuid, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlockApi->getBlockOperation: ', $e->getMessage(), PHP_EOL;
@@ -219,15 +258,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the block operation. |
+ **uuid** | [**string**](../Model/.md)| The uuid of the block operation |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\BlockOperationResponse**](../Model/BlockOperationResponse.md)
+[**\Swagger\Client\Model\BlockOperation**](../Model/BlockOperation.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -236,85 +278,42 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getBlockOperations**
-> \Swagger\Client\Model\BlockOperationsList getBlockOperations()
+# **listBlockOperations**
+> \Swagger\Client\Model\BlockOperation[] listBlockOperations($details, $accept, $pretty)
 
 List block operations
 
-Returns a list of all the currently running block operations.  > Required permission: block.op.list
+Returns a list of all the currently running block operations.     **Required permissions:**    - **block.op.list**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\BlockApi();
+$apiInstance = new Swagger\Client\Api\BlockApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->getBlockOperations();
+    $result = $apiInstance->listBlockOperations($details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BlockApi->getBlockOperations: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\Swagger\Client\Model\BlockOperationsList**](../Model/BlockOperationsList.md)
-
-### Authorization
-
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **startBlockOperation**
-> \Swagger\Client\Model\BlockOperationResponse startBlockOperation($request)
-
-Create block operation
-
-Start a request to get or change blocks on the server.  > Required permission: block.op.create
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\BlockApi();
-$request = array(new \Swagger\Client\Model\BlockOperationNew()); // \Swagger\Client\Model\BlockOperationNew[] | The requested changes to blocks
-
-try {
-    $result = $api_instance->startBlockOperation($request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling BlockApi->startBlockOperation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockApi->listBlockOperations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -323,15 +322,84 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**\Swagger\Client\Model\BlockOperationNew[]**](../Model/BlockOperationNew.md)| The requested changes to blocks |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\BlockOperationResponse**](../Model/BlockOperationResponse.md)
+[**\Swagger\Client\Model\BlockOperation[]**](../Model/BlockOperation.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **modifyBlockOperation**
+> \Swagger\Client\Model\BlockOperation modifyBlockOperation($uuid, $body, $details, $accept, $pretty)
+
+Modify a block operation
+
+Modify an existing block operation to either pause or continue it.     **Required permissions:**    - **block.op.modify**
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\BlockApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uuid = "uuid_example"; // string | The uuid of the block operation
+$body = new \Swagger\Client\Model\ModifyBlockOperationRequest(); // \Swagger\Client\Model\ModifyBlockOperationRequest | 
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
+
+try {
+    $result = $apiInstance->modifyBlockOperation($uuid, $body, $details, $accept, $pretty);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BlockApi->modifyBlockOperation: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**string**](../Model/.md)| The uuid of the block operation |
+ **body** | [**\Swagger\Client\Model\ModifyBlockOperationRequest**](../Model/ModifyBlockOperationRequest.md)|  | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\BlockOperation**](../Model/BlockOperation.md)
+
+### Authorization
+
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

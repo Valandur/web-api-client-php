@@ -1,41 +1,49 @@
 # Swagger\Client\RegistryApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCatalogValues**](RegistryApi.md#getCatalogValues) | **GET** /registry/{className} | List catalog values
+[**getRegistry**](RegistryApi.md#getRegistry) | **GET** /registry/{class} | Get a catalog type
 
 
-# **getCatalogValues**
-> \Swagger\Client\Model\CatalogTypesResponse getCatalogValues($class_name)
+# **getRegistry**
+> \Swagger\Client\Model\CatalogType[] getRegistry($class, $details, $accept, $pretty)
 
-List catalog values
+Get a catalog type
 
-Lists all the catalog values of a specified CatalogType.  > Required permission: registry.one
+Lists all the catalog values of a specified CatalogType.     **Required permissions:**    - **registry.one**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\RegistryApi();
-$class_name = "class_name_example"; // string | The fully qualified class name of the CatalogType to get.
+$apiInstance = new Swagger\Client\Api\RegistryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$class = "class_example"; // string | The fully qualified classname of the catalog type
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->getCatalogValues($class_name);
+    $result = $apiInstance->getRegistry($class, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RegistryApi->getCatalogValues: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RegistryApi->getRegistry: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -44,15 +52,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **class_name** | **string**| The fully qualified class name of the CatalogType to get. |
+ **class** | **string**| The fully qualified classname of the catalog type |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\CatalogTypesResponse**](../Model/CatalogTypesResponse.md)
+[**\Swagger\Client\Model\CatalogType[]**](../Model/CatalogType.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

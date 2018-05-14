@@ -1,99 +1,51 @@
 # Swagger\Client\EntityApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**changeEntity**](EntityApi.md#changeEntity) | **PUT** /entity/{uuid} | Edit entity
-[**createEntity**](EntityApi.md#createEntity) | **POST** /entity | Create an entity
-[**destroyEntity**](EntityApi.md#destroyEntity) | **DELETE** /entity/{uuid} | Destroy an entity
-[**executeEntityMethod**](EntityApi.md#executeEntityMethod) | **POST** /entity/{uuid} | Execute entity method
-[**getEntities**](EntityApi.md#getEntities) | **GET** /entity | Entities list
-[**getEntity**](EntityApi.md#getEntity) | **GET** /entity/{uuid} | Detailed entity info
+[**createEntity**](EntityApi.md#createEntity) | **POST** /entity | Spawn an entity
+[**executeMethod**](EntityApi.md#executeMethod) | **POST** /entity/{entity}/method | Execute a method
+[**getEntity**](EntityApi.md#getEntity) | **GET** /entity/{entity} | Get entity
+[**listEntities**](EntityApi.md#listEntities) | **GET** /entity | List entities
+[**modifyEntity**](EntityApi.md#modifyEntity) | **PUT** /entity/{entity} | Modify an entity
+[**removeEntity**](EntityApi.md#removeEntity) | **DELETE** /entity/{entity} | Destroy an entity
 
-
-# **changeEntity**
-> \Swagger\Client\Model\EntityResponse changeEntity($uuid, $update_entity_request)
-
-Edit entity
-
-Update the properties of an existing entity.  > Required permission: entity.change
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\EntityApi();
-$uuid = "uuid_example"; // string | The uuid of the entity.
-$update_entity_request = new \Swagger\Client\Model\UpdateEntityRequest(); // \Swagger\Client\Model\UpdateEntityRequest | The new properties of the entity
-
-try {
-    $result = $api_instance->changeEntity($uuid, $update_entity_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EntityApi->changeEntity: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the entity. |
- **update_entity_request** | [**\Swagger\Client\Model\UpdateEntityRequest**](../Model/UpdateEntityRequest.md)| The new properties of the entity |
-
-### Return type
-
-[**\Swagger\Client\Model\EntityResponse**](../Model/EntityResponse.md)
-
-### Authorization
-
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createEntity**
-> \Swagger\Client\Model\EntityResponse createEntity($create_entity_request)
+> \Swagger\Client\Model\Entity createEntity($body, $details, $accept, $pretty)
 
-Create an entity
+Spawn an entity
 
-Creates & Spawns a new entity with the specified properties.  > Required permission: entity.create
+Creates & Spawns a new entity with the specified properties.     **Required permissions:**    - **entity.create**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\EntityApi();
-$create_entity_request = new \Swagger\Client\Model\CreateEntityRequest(); // \Swagger\Client\Model\CreateEntityRequest | 
+$apiInstance = new Swagger\Client\Api\EntityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Swagger\Client\Model\CreateEntityRequest(); // \Swagger\Client\Model\CreateEntityRequest | 
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->createEntity($create_entity_request);
+    $result = $apiInstance->createEntity($body, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->createEntity: ', $e->getMessage(), PHP_EOL;
@@ -105,15 +57,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_entity_request** | [**\Swagger\Client\Model\CreateEntityRequest**](../Model/CreateEntityRequest.md)|  |
+ **body** | [**\Swagger\Client\Model\CreateEntityRequest**](../Model/CreateEntityRequest.md)|  | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\EntityResponse**](../Model/EntityResponse.md)
+[**\Swagger\Client\Model\Entity**](../Model/Entity.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -122,35 +77,44 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **destroyEntity**
-> \Swagger\Client\Model\EntityResponse destroyEntity($uuid)
+# **executeMethod**
+> \Swagger\Client\Model\ExecuteMethodResponse executeMethod($entity, $body, $details, $accept, $pretty)
 
-Destroy an entity
+Execute a method
 
-Destroys an entity.  > Required permission: entity.delete
+Provides direct access to the underlaying entity object and can execute any method on it.     **Required permissions:**    - **entity.method**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\EntityApi();
-$uuid = "uuid_example"; // string | The uuid of the entity.
+$apiInstance = new Swagger\Client\Api\EntityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$entity = "entity_example"; // string | The uuid of the entity
+$body = new \Swagger\Client\Model\ExecuteMethodRequest(); // \Swagger\Client\Model\ExecuteMethodRequest | 
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->destroyEntity($uuid);
+    $result = $apiInstance->executeMethod($entity, $body, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EntityApi->destroyEntity: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EntityApi->executeMethod: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -159,125 +123,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the entity. |
+ **entity** | [**string**](../Model/.md)| The uuid of the entity |
+ **body** | [**\Swagger\Client\Model\ExecuteMethodRequest**](../Model/ExecuteMethodRequest.md)|  | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\EntityResponse**](../Model/EntityResponse.md)
+[**\Swagger\Client\Model\ExecuteMethodResponse**](../Model/ExecuteMethodResponse.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **executeEntityMethod**
-> \Swagger\Client\Model\EntityMethodResult executeEntityMethod($uuid, $request)
-
-Execute entity method
-
-Provides direct access to the underlaying entity object and can execute any method on it.  > Required permission: entity.method
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\EntityApi();
-$uuid = "uuid_example"; // string | The uuid of the entity.
-$request = new \Swagger\Client\Model\RawRequest(); // \Swagger\Client\Model\RawRequest | Information about which method to execute.
-
-try {
-    $result = $api_instance->executeEntityMethod($uuid, $request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EntityApi->executeEntityMethod: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the entity. |
- **request** | [**\Swagger\Client\Model\RawRequest**](../Model/RawRequest.md)| Information about which method to execute. |
-
-### Return type
-
-[**\Swagger\Client\Model\EntityMethodResult**](../Model/EntityMethodResult.md)
-
-### Authorization
-
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getEntities**
-> \Swagger\Client\Model\EntitiesList getEntities($details)
-
-Entities list
-
-Get a list of all entities on the server (in all worlds).  > Required permission: entity.list
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\EntityApi();
-$details = "details_example"; // string | Pass this parameter to receive the full details for each entity.
-
-try {
-    $result = $api_instance->getEntities($details);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling EntityApi->getEntities: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **details** | **string**| Pass this parameter to receive the full details for each entity. | [optional]
-
-### Return type
-
-[**\Swagger\Client\Model\EntitiesList**](../Model/EntitiesList.md)
-
-### Authorization
-
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -287,33 +145,39 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEntity**
-> \Swagger\Client\Model\EntityResponse getEntity($uuid, $fields, $methods)
+> \Swagger\Client\Model\Entity getEntity($entity, $details, $accept, $pretty)
 
-Detailed entity info
+Get entity
 
-Get detailed information about an entity.  > Required permission: entity.one
+Get detailed information about an entity.     **Required permissions:**    - **entity.one**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\EntityApi();
-$uuid = "uuid_example"; // string | The uuid of the entity to get detailed information about.
-$fields = "fields_example"; // string | An optional list of additional fields to get.
-$methods = "methods_example"; // string | An optional list of additional methods to get.
+$apiInstance = new Swagger\Client\Api\EntityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$entity = "entity_example"; // string | The uuid of the entity
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->getEntity($uuid, $fields, $methods);
+    $result = $apiInstance->getEntity($entity, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EntityApi->getEntity: ', $e->getMessage(), PHP_EOL;
@@ -325,17 +189,223 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the entity to get detailed information about. |
- **fields** | **string**| An optional list of additional fields to get. | [optional]
- **methods** | **string**| An optional list of additional methods to get. | [optional]
+ **entity** | [**string**](../Model/.md)| The uuid of the entity |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\EntityResponse**](../Model/EntityResponse.md)
+[**\Swagger\Client\Model\Entity**](../Model/Entity.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **listEntities**
+> \Swagger\Client\Model\Entity[] listEntities($world, $type, $min, $max, $limit, $details, $accept, $pretty)
+
+List entities
+
+Get a list of all entities on the server (in all worlds).     **Required permissions:**    - **entity.list**
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\EntityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$world = "world_example"; // string | The world to filter the entities by
+$type = "type_example"; // string | The type id of the entities to filter by
+$min = "min_example"; // string | The minimum coordinates at which the entity must be, min=x|y|z
+$max = "max_example"; // string | The maximum coordinates at which the entity must be, max=x|y|z
+$limit = 56; // int | The maximum amount of entities returned
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
+
+try {
+    $result = $apiInstance->listEntities($world, $type, $min, $max, $limit, $details, $accept, $pretty);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EntityApi->listEntities: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **world** | **string**| The world to filter the entities by | [optional]
+ **type** | **string**| The type id of the entities to filter by | [optional]
+ **min** | **string**| The minimum coordinates at which the entity must be, min&#x3D;x|y|z | [optional]
+ **max** | **string**| The maximum coordinates at which the entity must be, max&#x3D;x|y|z | [optional]
+ **limit** | **int**| The maximum amount of entities returned | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\Entity[]**](../Model/Entity.md)
+
+### Authorization
+
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **modifyEntity**
+> \Swagger\Client\Model\Entity modifyEntity($entity, $body, $details, $accept, $pretty)
+
+Modify an entity
+
+Modify the properties of an existing entity.     **Required permissions:**    - **entity.modify**
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\EntityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$entity = "entity_example"; // string | The uuid of the entity
+$body = new \Swagger\Client\Model\UpdateEntityRequest(); // \Swagger\Client\Model\UpdateEntityRequest | 
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
+
+try {
+    $result = $apiInstance->modifyEntity($entity, $body, $details, $accept, $pretty);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EntityApi->modifyEntity: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity** | [**string**](../Model/.md)| The uuid of the entity |
+ **body** | [**\Swagger\Client\Model\UpdateEntityRequest**](../Model/UpdateEntityRequest.md)|  | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\Entity**](../Model/Entity.md)
+
+### Authorization
+
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **removeEntity**
+> \Swagger\Client\Model\Entity removeEntity($entity, $details, $accept, $pretty)
+
+Destroy an entity
+
+Destroys an entity.     **Required permissions:**    - **entity.delete**
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\EntityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$entity = "entity_example"; // string | The uuid of the entity
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
+
+try {
+    $result = $apiInstance->removeEntity($entity, $details, $accept, $pretty);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EntityApi->removeEntity: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity** | [**string**](../Model/.md)| The uuid of the entity |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\Entity**](../Model/Entity.md)
+
+### Authorization
+
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 

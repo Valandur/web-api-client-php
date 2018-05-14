@@ -1,45 +1,53 @@
 # Swagger\Client\PlayerApi
 
-All URIs are relative to *http://&lt;host&gt;/api*
+All URIs are relative to *https://localhost/api/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**changePlayer**](PlayerApi.md#changePlayer) | **PUT** /player/{uuid} | Edit player
-[**executePlayerMethod**](PlayerApi.md#executePlayerMethod) | **POST** /player/{uuid} | Execute player method
-[**getPlayer**](PlayerApi.md#getPlayer) | **GET** /player/{uuid} | Detailed player info
-[**getPlayers**](PlayerApi.md#getPlayers) | **GET** /player | Player list
+[**executeMethod**](PlayerApi.md#executeMethod) | **POST** /player/{player}/method | Execute a method
+[**getPlayer**](PlayerApi.md#getPlayer) | **GET** /player/{player} | Get a player
+[**listPlayers**](PlayerApi.md#listPlayers) | **GET** /player | List players
+[**modifyPlayer**](PlayerApi.md#modifyPlayer) | **PUT** /player/{player} | Modify a player
 
 
-# **changePlayer**
-> \Swagger\Client\Model\PlayerResponse changePlayer($uuid, $update_player_request)
+# **executeMethod**
+> \Swagger\Client\Model\ExecuteMethodResponse executeMethod($player, $body, $details, $accept, $pretty)
 
-Edit player
+Execute a method
 
-Update the properties of an existing player.  > Required permission: player.change
+Provides direct access to the underlying player object and can execute any method on it.     **Required permissions:**    - **player.method**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\PlayerApi();
-$uuid = "uuid_example"; // string | The uuid of the player.
-$update_player_request = new \Swagger\Client\Model\UpdatePlayerRequest(); // \Swagger\Client\Model\UpdatePlayerRequest | The new properties of the player
+$apiInstance = new Swagger\Client\Api\PlayerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$player = "player_example"; // string | The uuid of the player
+$body = new \Swagger\Client\Model\ExecuteMethodRequest(); // \Swagger\Client\Model\ExecuteMethodRequest | 
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->changePlayer($uuid, $update_player_request);
+    $result = $apiInstance->executeMethod($player, $body, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PlayerApi->changePlayer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PlayerApi->executeMethod: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -48,72 +56,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the player. |
- **update_player_request** | [**\Swagger\Client\Model\UpdatePlayerRequest**](../Model/UpdatePlayerRequest.md)| The new properties of the player |
+ **player** | **string**| The uuid of the player |
+ **body** | [**\Swagger\Client\Model\ExecuteMethodRequest**](../Model/ExecuteMethodRequest.md)|  | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\PlayerResponse**](../Model/PlayerResponse.md)
+[**\Swagger\Client\Model\ExecuteMethodResponse**](../Model/ExecuteMethodResponse.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/xml
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **executePlayerMethod**
-> \Swagger\Client\Model\ExecutePlayerMethodResponse executePlayerMethod($uuid, $request)
-
-Execute player method
-
-Provides direct access to the underlaying player object and can execute any method on it.  > Required permission: player.method
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\PlayerApi();
-$uuid = "uuid_example"; // string | The uuid of the player.
-$request = new \Swagger\Client\Model\RawRequest(); // \Swagger\Client\Model\RawRequest | Information about which method to execute.
-
-try {
-    $result = $api_instance->executePlayerMethod($uuid, $request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PlayerApi->executePlayerMethod: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the player. |
- **request** | [**\Swagger\Client\Model\RawRequest**](../Model/RawRequest.md)| Information about which method to execute. |
-
-### Return type
-
-[**\Swagger\Client\Model\ExecutePlayerMethodResponse**](../Model/ExecutePlayerMethodResponse.md)
-
-### Authorization
-
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -123,33 +78,39 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPlayer**
-> \Swagger\Client\Model\PlayerResponse getPlayer($uuid, $fields, $methods)
+> \Swagger\Client\Model\PlayerFull getPlayer($player, $details, $accept, $pretty)
 
-Detailed player info
+Get a player
 
-Get detailed information about a player.  > Required permission: player.one
+Get detailed information about a player.     **Required permissions:**    - **player.one**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\PlayerApi();
-$uuid = "uuid_example"; // string | The uuid of the player to get detailed information about.
-$fields = "fields_example"; // string | An optional list of additional fields to get.
-$methods = "methods_example"; // string | An optional list of additional methods to get.
+$apiInstance = new Swagger\Client\Api\PlayerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$player = "player_example"; // string | The uuid of the player
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->getPlayer($uuid, $fields, $methods);
+    $result = $apiInstance->getPlayer($player, $details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PlayerApi->getPlayer: ', $e->getMessage(), PHP_EOL;
@@ -161,17 +122,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string**| The uuid of the player to get detailed information about. |
- **fields** | **string**| An optional list of additional fields to get. | [optional]
- **methods** | **string**| An optional list of additional methods to get. | [optional]
+ **player** | **string**| The uuid of the player |
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\PlayerResponse**](../Model/PlayerResponse.md)
+[**\Swagger\Client\Model\PlayerFull**](../Model/PlayerFull.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
@@ -180,48 +142,128 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getPlayers**
-> \Swagger\Client\Model\PlayersList getPlayers()
+# **listPlayers**
+> \Swagger\Client\Model\PlayerFull[] listPlayers($details, $accept, $pretty)
 
-Player list
+List players
 
-Get a list of all the players on the server.  > Required permission: player.list
+Get a list of all the players on the server.     **Required permissions:**    - **player.list**
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: headerKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-webapi-key', 'YOUR_API_KEY');
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-webapi-key', 'Bearer');
-// Configure API key authorization: queryKey
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\PlayerApi();
+$apiInstance = new Swagger\Client\Api\PlayerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
 
 try {
-    $result = $api_instance->getPlayers();
+    $result = $apiInstance->listPlayers($details, $accept, $pretty);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PlayerApi->getPlayers: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PlayerApi->listPlayers: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\PlayersList**](../Model/PlayersList.md)
+[**\Swagger\Client\Model\PlayerFull[]**](../Model/PlayerFull.md)
 
 ### Authorization
 
-[headerKey](../../README.md#headerKey), [queryKey](../../README.md#queryKey)
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **modifyPlayer**
+> \Swagger\Client\Model\PlayerFull modifyPlayer($player, $body, $details, $accept, $pretty)
+
+Modify a player
+
+Modify the properties of an existing player.     **Required permissions:**    - **player.modify**
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ApiKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-WebAPI-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-WebAPI-Key', 'Bearer');
+// Configure API key authorization: ApiKeyQuery
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('key', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\PlayerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$player = "player_example"; // string | The uuid of the player
+$body = new \Swagger\Client\Model\UpdatePlayerRequest(); // \Swagger\Client\Model\UpdatePlayerRequest | 
+$details = true; // bool | Add to include additional details, omit or false otherwise
+$accept = "accept_example"; // string | Override the 'Accept' request header (useful for debugging your requests)
+$pretty = true; // bool | Add to make the Web-API pretty print the response (useful for debugging your requests)
+
+try {
+    $result = $apiInstance->modifyPlayer($player, $body, $details, $accept, $pretty);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayerApi->modifyPlayer: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **player** | **string**| The uuid of the player |
+ **body** | [**\Swagger\Client\Model\UpdatePlayerRequest**](../Model/UpdatePlayerRequest.md)|  | [optional]
+ **details** | **bool**| Add to include additional details, omit or false otherwise | [optional]
+ **accept** | **string**| Override the &#39;Accept&#39; request header (useful for debugging your requests) | [optional]
+ **pretty** | **bool**| Add to make the Web-API pretty print the response (useful for debugging your requests) | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\PlayerFull**](../Model/PlayerFull.md)
+
+### Authorization
+
+[ApiKeyHeader](../../README.md#ApiKeyHeader), [ApiKeyQuery](../../README.md#ApiKeyQuery)
 
 ### HTTP request headers
 
