@@ -58,7 +58,6 @@ class Advancement implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'string',
-        'link' => 'string',
         'name' => 'string',
         'title' => 'string',
         'announce_to_chat' => 'bool',
@@ -76,7 +75,6 @@ class Advancement implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'link' => null,
         'name' => null,
         'title' => null,
         'announce_to_chat' => null,
@@ -115,7 +113,6 @@ class Advancement implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'link' => 'link',
         'name' => 'name',
         'title' => 'title',
         'announce_to_chat' => 'announceToChat',
@@ -133,7 +130,6 @@ class Advancement implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'link' => 'setLink',
         'name' => 'setName',
         'title' => 'setTitle',
         'announce_to_chat' => 'setAnnounceToChat',
@@ -151,7 +147,6 @@ class Advancement implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'link' => 'getLink',
         'name' => 'getName',
         'title' => 'getTitle',
         'announce_to_chat' => 'getAnnounceToChat',
@@ -223,7 +218,6 @@ class Advancement implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['announce_to_chat'] = isset($data['announce_to_chat']) ? $data['announce_to_chat'] : null;
@@ -246,9 +240,6 @@ class Advancement implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -268,9 +259,6 @@ class Advancement implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['id'] === null) {
-            return false;
-        }
-        if ($this->container['link'] === null) {
             return false;
         }
         if ($this->container['name'] === null) {
@@ -303,30 +291,6 @@ class Advancement implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
 
         return $this;
     }

@@ -61,8 +61,9 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
         'exhaustion' => 'double',
         'experience_since_level' => 'int',
         'food_level' => 'int',
+        'game_mode' => 'string',
         'health' => 'double',
-        'inventory' => '\Swagger\Client\Model\ItemStack[]',
+        'inventory' => '\Swagger\Client\Model\SlotRequest[]',
         'level' => 'int',
         'max_health' => 'double',
         'position' => '\Swagger\Client\Model\Vector3d',
@@ -84,6 +85,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
         'exhaustion' => 'double',
         'experience_since_level' => 'int32',
         'food_level' => 'int32',
+        'game_mode' => null,
         'health' => 'double',
         'inventory' => null,
         'level' => 'int32',
@@ -128,6 +130,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
         'exhaustion' => 'exhaustion',
         'experience_since_level' => 'experienceSinceLevel',
         'food_level' => 'foodLevel',
+        'game_mode' => 'gameMode',
         'health' => 'health',
         'inventory' => 'inventory',
         'level' => 'level',
@@ -151,6 +154,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
         'exhaustion' => 'setExhaustion',
         'experience_since_level' => 'setExperienceSinceLevel',
         'food_level' => 'setFoodLevel',
+        'game_mode' => 'setGameMode',
         'health' => 'setHealth',
         'inventory' => 'setInventory',
         'level' => 'setLevel',
@@ -174,6 +178,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
         'exhaustion' => 'getExhaustion',
         'experience_since_level' => 'getExperienceSinceLevel',
         'food_level' => 'getFoodLevel',
+        'game_mode' => 'getGameMode',
         'health' => 'getHealth',
         'inventory' => 'getInventory',
         'level' => 'getLevel',
@@ -251,6 +256,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
         $this->container['exhaustion'] = isset($data['exhaustion']) ? $data['exhaustion'] : null;
         $this->container['experience_since_level'] = isset($data['experience_since_level']) ? $data['experience_since_level'] : null;
         $this->container['food_level'] = isset($data['food_level']) ? $data['food_level'] : null;
+        $this->container['game_mode'] = isset($data['game_mode']) ? $data['game_mode'] : null;
         $this->container['health'] = isset($data['health']) ? $data['health'] : null;
         $this->container['inventory'] = isset($data['inventory']) ? $data['inventory'] : null;
         $this->container['level'] = isset($data['level']) ? $data['level'] : null;
@@ -386,6 +392,30 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets game_mode
+     *
+     * @return string
+     */
+    public function getGameMode()
+    {
+        return $this->container['game_mode'];
+    }
+
+    /**
+     * Sets game_mode
+     *
+     * @param string $game_mode The game mode of the player
+     *
+     * @return $this
+     */
+    public function setGameMode($game_mode)
+    {
+        $this->container['game_mode'] = $game_mode;
+
+        return $this;
+    }
+
+    /**
      * Gets health
      *
      * @return double
@@ -412,7 +442,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
     /**
      * Gets inventory
      *
-     * @return \Swagger\Client\Model\ItemStack[]
+     * @return \Swagger\Client\Model\SlotRequest[]
      */
     public function getInventory()
     {
@@ -422,7 +452,7 @@ class UpdatePlayerRequest implements ModelInterface, ArrayAccess
     /**
      * Sets inventory
      *
-     * @param \Swagger\Client\Model\ItemStack[] $inventory The ItemStacks in the inventory of the entity
+     * @param \Swagger\Client\Model\SlotRequest[] $inventory The slots in the inventory of the entity to modify
      *
      * @return $this
      */

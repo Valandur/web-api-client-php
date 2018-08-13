@@ -1,27 +1,9 @@
-# WorldFull
+# Slot
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**link** | **string** | The API link that can be used to obtain more information about this object | 
-**loaded** | **bool** | True if the world is loaded, false otherwise | 
-**name** | **string** | The name of this world | 
-**uuid** | **string** | The unique UUID that identifies this world | 
-**map_features_enabled** | **bool** | True if map specific features are enabled for this world, false otherwise | 
-**border** | [**\Swagger\Client\Model\WorldBorder**](WorldBorder.md) | The border of the world | 
-**spawn** | [**\Swagger\Client\Model\CatalogType**](CatalogType.md) |  | [optional] 
-**load_on_startup** | **bool** | True if this world is loaded when the server starts, false otherwise | 
-**keep_spawn_loaded** | **bool** | True if the spawn of this world is always kept loaded, false otherwise | 
-**allow_commands** | **bool** | True if commands are allowed to be executed in this world, false otherwise | 
-**generate_bonus_chests** | **bool** | True if bonus chests are generated for this world, false otherwise | 
-**time** | **int** | The current time in the world | 
-**seed** | **int** | The seed of the world | 
-**difficulty** | [**\Swagger\Client\Model\CatalogTypeDifficulty**](CatalogTypeDifficulty.md) | The difficulty of the world | 
-**game_rules** | **map[string,string]** | A map of world rule names to values | 
-**weather** | [**\Swagger\Client\Model\CatalogTypeWeather**](CatalogTypeWeather.md) | The current weather in the world | 
-**game_mode** | [**\Swagger\Client\Model\GameMode**](GameMode.md) |  | [optional] 
-**generator_type** | [**\Swagger\Client\Model\CatalogTypeGeneratorType**](CatalogTypeGeneratorType.md) | The generator type used for this world | 
-**dimension_type** | [**\Swagger\Client\Model\CatalogTypeDimensionType**](CatalogTypeDimensionType.md) | The dimension of the world | 
+**stack** | [**\Swagger\Client\Model\ItemStack**](ItemStack.md) | The item stack that is in this slot | 
 **absorption** | **double** |  | [optional] 
 **age** | [**\Swagger\Client\Model\AgeableData**](AgeableData.md) |  | [optional] 
 **aggressive** | **bool** |  | [optional] 
@@ -88,6 +70,7 @@ Name | Type | Description | Notes
 **food** | [**\Swagger\Client\Model\FoodData**](FoodData.md) |  | [optional] 
 **furnace** | [**\Swagger\Client\Model\FurnaceData**](FurnaceData.md) |  | [optional] 
 **fuse** | [**\Swagger\Client\Model\FuseData**](FuseData.md) |  | [optional] 
+**game_mode** | [**\Swagger\Client\Model\GameMode**](GameMode.md) |  | [optional] 
 **generation** | **int** |  | [optional] 
 **glowing** | **bool** |  | [optional] 
 **golden_apple** | [**\Swagger\Client\Model\CatalogType**](CatalogType.md) |  | [optional] 
@@ -155,6 +138,7 @@ Name | Type | Description | Notes
 **slime** | [**\Swagger\Client\Model\SlimeData**](SlimeData.md) |  | [optional] 
 **sneaking** | **bool** |  | [optional] 
 **snow** | **bool** |  | [optional] 
+**spawn** | [**\Swagger\Client\Model\CatalogType**](CatalogType.md) |  | [optional] 
 **sprinting** | **bool** |  | [optional] 
 **stair_shape** | [**\Swagger\Client\Model\CatalogType**](CatalogType.md) |  | [optional] 
 **statistics** | [**\Swagger\Client\Model\Stat[]**](Stat.md) |  | [optional] 

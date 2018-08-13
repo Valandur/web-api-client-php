@@ -284,7 +284,7 @@ class InteractiveMessage implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id The id of the message. Used for sender of the message to identify responses.
+     * @param string $id The id of the message. Used to identify responses.
      *
      * @return $this
      */

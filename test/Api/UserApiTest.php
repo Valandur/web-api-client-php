@@ -72,12 +72,42 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getUserDetails
+     * Test case for createUser
+     *
+     * Create a user.
+     *
+     */
+    public function testCreateUser()
+    {
+    }
+
+    /**
+     * Test case for deleteUser
+     *
+     * Delete a user.
+     *
+     */
+    public function testDeleteUser()
+    {
+    }
+
+    /**
+     * Test case for getMe
      *
      * Check info.
      *
      */
-    public function testGetUserDetails()
+    public function testGetMe()
+    {
+    }
+
+    /**
+     * Test case for getUsers
+     *
+     * List users.
+     *
+     */
+    public function testGetUsers()
     {
     }
 
@@ -98,6 +128,26 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testLogout()
+    {
+    }
+
+    /**
+     * Test case for logoutRedirect
+     *
+     * .
+     *
+     */
+    public function testLogoutRedirect()
+    {
+    }
+
+    /**
+     * Test case for modifyUser
+     *
+     * Update a user.
+     *
+     */
+    public function testModifyUser()
     {
     }
 }

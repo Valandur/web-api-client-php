@@ -441,7 +441,7 @@ class PlayerApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PlayerFull
+     * @return \Swagger\Client\Model\Player
      */
     public function getPlayer($player, $details = null, $accept = null, $pretty = null)
     {
@@ -461,11 +461,11 @@ class PlayerApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PlayerFull, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Player, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPlayerWithHttpInfo($player, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\PlayerFull';
+        $returnType = '\Swagger\Client\Model\Player';
         $request = $this->getPlayerRequest($player, $details, $accept, $pretty);
 
         try {
@@ -517,7 +517,7 @@ class PlayerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PlayerFull',
+                        '\Swagger\Client\Model\Player',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -597,7 +597,7 @@ class PlayerApi
      */
     public function getPlayerAsyncWithHttpInfo($player, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\PlayerFull';
+        $returnType = '\Swagger\Client\Model\Player';
         $request = $this->getPlayerRequest($player, $details, $accept, $pretty);
 
         return $this->client
@@ -771,7 +771,7 @@ class PlayerApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PlayerFull[]
+     * @return \Swagger\Client\Model\Player[]
      */
     public function listPlayers($details = null, $accept = null, $pretty = null)
     {
@@ -790,11 +790,11 @@ class PlayerApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PlayerFull[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Player[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listPlayersWithHttpInfo($details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\PlayerFull[]';
+        $returnType = '\Swagger\Client\Model\Player[]';
         $request = $this->listPlayersRequest($details, $accept, $pretty);
 
         try {
@@ -846,7 +846,7 @@ class PlayerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PlayerFull[]',
+                        '\Swagger\Client\Model\Player[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -916,7 +916,7 @@ class PlayerApi
      */
     public function listPlayersAsyncWithHttpInfo($details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\PlayerFull[]';
+        $returnType = '\Swagger\Client\Model\Player[]';
         $request = $this->listPlayersRequest($details, $accept, $pretty);
 
         return $this->client
@@ -1077,7 +1077,7 @@ class PlayerApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\PlayerFull
+     * @return \Swagger\Client\Model\Player
      */
     public function modifyPlayer($player, $body = null, $details = null, $accept = null, $pretty = null)
     {
@@ -1098,11 +1098,11 @@ class PlayerApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\PlayerFull, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\Player, HTTP status code, HTTP response headers (array of strings)
      */
     public function modifyPlayerWithHttpInfo($player, $body = null, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\PlayerFull';
+        $returnType = '\Swagger\Client\Model\Player';
         $request = $this->modifyPlayerRequest($player, $body, $details, $accept, $pretty);
 
         try {
@@ -1154,7 +1154,7 @@ class PlayerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\PlayerFull',
+                        '\Swagger\Client\Model\Player',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1236,7 +1236,7 @@ class PlayerApi
      */
     public function modifyPlayerAsyncWithHttpInfo($player, $body = null, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\PlayerFull';
+        $returnType = '\Swagger\Client\Model\Player';
         $request = $this->modifyPlayerRequest($player, $body, $details, $accept, $pretty);
 
         return $this->client

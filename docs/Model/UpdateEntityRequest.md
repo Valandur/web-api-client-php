@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **damage** | [**\Swagger\Client\Model\DamageRequest**](DamageRequest.md) | The damage the entity will take | [optional] 
-**inventory** | [**\Swagger\Client\Model\ItemStack[]**](ItemStack.md) | The ItemStacks in the inventory of the entity | [optional] 
+**inventory** | [**\Swagger\Client\Model\SlotRequest[]**](SlotRequest.md) | The slots in the inventory of the entity to modify | [optional] 
 **position** | [**\Swagger\Client\Model\Vector3d**](Vector3d.md) | The position that the entity will be moved to | [optional] 
 **rotation** | [**\Swagger\Client\Model\Vector3d**](Vector3d.md) | The new rotation of the entity | [optional] 
 **scale** | [**\Swagger\Client\Model\Vector3d**](Vector3d.md) | The new scale of the entity | [optional] 

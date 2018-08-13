@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **createWorld**
-> \Swagger\Client\Model\WorldFull createWorld($body, $details, $accept, $pretty)
+> \Swagger\Client\Model\World createWorld($body, $details, $accept, $pretty)
 
 Create a world
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\WorldFull**](../Model/WorldFull.md)
+[**\Swagger\Client\Model\World**](../Model/World.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteWorld**
-> \Swagger\Client\Model\WorldFull deleteWorld($world, $details, $accept, $pretty)
+> \Swagger\Client\Model\World deleteWorld($world, $details, $accept, $pretty)
 
 Delete a world
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\WorldFull**](../Model/WorldFull.md)
+[**\Swagger\Client\Model\World**](../Model/World.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWorld**
-> \Swagger\Client\Model\WorldFull getWorld($world, $details, $accept, $pretty)
+> \Swagger\Client\Model\World getWorld($world, $details, $accept, $pretty)
 
 Get a world
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\WorldFull**](../Model/WorldFull.md)
+[**\Swagger\Client\Model\World**](../Model/World.md)
 
 ### Authorization
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listWorlds**
-> \Swagger\Client\Model\WorldFull[] listWorlds($details, $accept, $pretty)
+> \Swagger\Client\Model\World[] listWorlds($details, $accept, $pretty)
 
 List worlds
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\WorldFull[]**](../Model/WorldFull.md)
+[**\Swagger\Client\Model\World[]**](../Model/World.md)
 
 ### Authorization
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **modifyWorld**
-> \Swagger\Client\Model\WorldFull modifyWorld($world, $body, $details, $accept, $pretty)
+> \Swagger\Client\Model\World modifyWorld($world, $body, $details, $accept, $pretty)
 
 Modify a world
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\WorldFull**](../Model/WorldFull.md)
+[**\Swagger\Client\Model\World**](../Model/World.md)
 
 ### Authorization
 

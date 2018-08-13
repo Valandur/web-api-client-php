@@ -1,6 +1,6 @@
 <?php
 /**
- * PlayerFull
+ * Slot
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * PlayerFull Class Doc Comment
+ * Slot Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PlayerFull implements ModelInterface, ArrayAccess
+class Slot implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PlayerFull';
+    protected static $swaggerModelName = 'Slot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,22 +57,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'link' => 'string',
-        'name' => 'string',
-        'online' => 'bool',
-        'uuid' => 'string',
-        'unlocked_advancements' => '\Swagger\Client\Model\Advancement[]',
-        'latency' => 'int',
-        'rotation' => '\Swagger\Client\Model\Vector3d',
-        'scale' => '\Swagger\Client\Model\Vector3d',
-        'velocity' => '\Swagger\Client\Model\Vector3d',
-        'inventory' => '\Swagger\Client\Model\Inventory',
-        'helmet' => '\Swagger\Client\Model\ItemStack',
-        'chestplate' => '\Swagger\Client\Model\ItemStack',
-        'leggings' => '\Swagger\Client\Model\ItemStack',
-        'boots' => '\Swagger\Client\Model\ItemStack',
-        'address' => 'string',
-        'location' => '\Swagger\Client\Model\Location',
+        'stack' => '\Swagger\Client\Model\ItemStack',
         'absorption' => 'double',
         'age' => '\Swagger\Client\Model\AgeableData',
         'aggressive' => 'bool',
@@ -151,6 +136,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
         'horse' => '\Swagger\Client\Model\HorseData',
         'igniteable' => '\Swagger\Client\Model\IgniteableData',
         'in_wall' => 'bool',
+        'inventory' => '\Swagger\Client\Model\Inventory',
         'invisibility' => '\Swagger\Client\Model\InvisibilityData',
         'invulnerability' => '\Swagger\Client\Model\InvulnerabilityData',
         'joined' => '\Swagger\Client\Model\JoinData',
@@ -275,22 +261,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'link' => null,
-        'name' => null,
-        'online' => null,
-        'uuid' => 'uuid',
-        'unlocked_advancements' => null,
-        'latency' => 'int32',
-        'rotation' => null,
-        'scale' => null,
-        'velocity' => null,
-        'inventory' => null,
-        'helmet' => null,
-        'chestplate' => null,
-        'leggings' => null,
-        'boots' => null,
-        'address' => null,
-        'location' => null,
+        'stack' => null,
         'absorption' => 'double',
         'age' => null,
         'aggressive' => null,
@@ -369,6 +340,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
         'horse' => null,
         'igniteable' => null,
         'in_wall' => null,
+        'inventory' => null,
         'invisibility' => null,
         'invulnerability' => null,
         'joined' => null,
@@ -514,22 +486,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'link' => 'link',
-        'name' => 'name',
-        'online' => 'online',
-        'uuid' => 'uuid',
-        'unlocked_advancements' => 'unlockedAdvancements',
-        'latency' => 'latency',
-        'rotation' => 'rotation',
-        'scale' => 'scale',
-        'velocity' => 'velocity',
-        'inventory' => 'inventory',
-        'helmet' => 'helmet',
-        'chestplate' => 'chestplate',
-        'leggings' => 'leggings',
-        'boots' => 'boots',
-        'address' => 'address',
-        'location' => 'location',
+        'stack' => 'stack',
         'absorption' => 'absorption',
         'age' => 'age',
         'aggressive' => 'aggressive',
@@ -608,6 +565,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
         'horse' => 'horse',
         'igniteable' => 'igniteable',
         'in_wall' => 'inWall',
+        'inventory' => 'inventory',
         'invisibility' => 'invisibility',
         'invulnerability' => 'invulnerability',
         'joined' => 'joined',
@@ -732,22 +690,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'link' => 'setLink',
-        'name' => 'setName',
-        'online' => 'setOnline',
-        'uuid' => 'setUuid',
-        'unlocked_advancements' => 'setUnlockedAdvancements',
-        'latency' => 'setLatency',
-        'rotation' => 'setRotation',
-        'scale' => 'setScale',
-        'velocity' => 'setVelocity',
-        'inventory' => 'setInventory',
-        'helmet' => 'setHelmet',
-        'chestplate' => 'setChestplate',
-        'leggings' => 'setLeggings',
-        'boots' => 'setBoots',
-        'address' => 'setAddress',
-        'location' => 'setLocation',
+        'stack' => 'setStack',
         'absorption' => 'setAbsorption',
         'age' => 'setAge',
         'aggressive' => 'setAggressive',
@@ -826,6 +769,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
         'horse' => 'setHorse',
         'igniteable' => 'setIgniteable',
         'in_wall' => 'setInWall',
+        'inventory' => 'setInventory',
         'invisibility' => 'setInvisibility',
         'invulnerability' => 'setInvulnerability',
         'joined' => 'setJoined',
@@ -950,22 +894,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'link' => 'getLink',
-        'name' => 'getName',
-        'online' => 'getOnline',
-        'uuid' => 'getUuid',
-        'unlocked_advancements' => 'getUnlockedAdvancements',
-        'latency' => 'getLatency',
-        'rotation' => 'getRotation',
-        'scale' => 'getScale',
-        'velocity' => 'getVelocity',
-        'inventory' => 'getInventory',
-        'helmet' => 'getHelmet',
-        'chestplate' => 'getChestplate',
-        'leggings' => 'getLeggings',
-        'boots' => 'getBoots',
-        'address' => 'getAddress',
-        'location' => 'getLocation',
+        'stack' => 'getStack',
         'absorption' => 'getAbsorption',
         'age' => 'getAge',
         'aggressive' => 'getAggressive',
@@ -1044,6 +973,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
         'horse' => 'getHorse',
         'igniteable' => 'getIgniteable',
         'in_wall' => 'getInWall',
+        'inventory' => 'getInventory',
         'invisibility' => 'getInvisibility',
         'invulnerability' => 'getInvulnerability',
         'joined' => 'getJoined',
@@ -1354,22 +1284,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['online'] = isset($data['online']) ? $data['online'] : null;
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['unlocked_advancements'] = isset($data['unlocked_advancements']) ? $data['unlocked_advancements'] : null;
-        $this->container['latency'] = isset($data['latency']) ? $data['latency'] : null;
-        $this->container['rotation'] = isset($data['rotation']) ? $data['rotation'] : null;
-        $this->container['scale'] = isset($data['scale']) ? $data['scale'] : null;
-        $this->container['velocity'] = isset($data['velocity']) ? $data['velocity'] : null;
-        $this->container['inventory'] = isset($data['inventory']) ? $data['inventory'] : null;
-        $this->container['helmet'] = isset($data['helmet']) ? $data['helmet'] : null;
-        $this->container['chestplate'] = isset($data['chestplate']) ? $data['chestplate'] : null;
-        $this->container['leggings'] = isset($data['leggings']) ? $data['leggings'] : null;
-        $this->container['boots'] = isset($data['boots']) ? $data['boots'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['stack'] = isset($data['stack']) ? $data['stack'] : null;
         $this->container['absorption'] = isset($data['absorption']) ? $data['absorption'] : null;
         $this->container['age'] = isset($data['age']) ? $data['age'] : null;
         $this->container['aggressive'] = isset($data['aggressive']) ? $data['aggressive'] : null;
@@ -1448,6 +1363,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
         $this->container['horse'] = isset($data['horse']) ? $data['horse'] : null;
         $this->container['igniteable'] = isset($data['igniteable']) ? $data['igniteable'] : null;
         $this->container['in_wall'] = isset($data['in_wall']) ? $data['in_wall'] : null;
+        $this->container['inventory'] = isset($data['inventory']) ? $data['inventory'] : null;
         $this->container['invisibility'] = isset($data['invisibility']) ? $data['invisibility'] : null;
         $this->container['invulnerability'] = isset($data['invulnerability']) ? $data['invulnerability'] : null;
         $this->container['joined'] = isset($data['joined']) ? $data['joined'] : null;
@@ -1575,38 +1491,8 @@ class PlayerFull implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['online'] === null) {
-            $invalidProperties[] = "'online' can't be null";
-        }
-        if ($this->container['uuid'] === null) {
-            $invalidProperties[] = "'uuid' can't be null";
-        }
-        if ($this->container['unlocked_advancements'] === null) {
-            $invalidProperties[] = "'unlocked_advancements' can't be null";
-        }
-        if ($this->container['latency'] === null) {
-            $invalidProperties[] = "'latency' can't be null";
-        }
-        if ($this->container['rotation'] === null) {
-            $invalidProperties[] = "'rotation' can't be null";
-        }
-        if ($this->container['scale'] === null) {
-            $invalidProperties[] = "'scale' can't be null";
-        }
-        if ($this->container['velocity'] === null) {
-            $invalidProperties[] = "'velocity' can't be null";
-        }
-        if ($this->container['address'] === null) {
-            $invalidProperties[] = "'address' can't be null";
-        }
-        if ($this->container['location'] === null) {
-            $invalidProperties[] = "'location' can't be null";
+        if ($this->container['stack'] === null) {
+            $invalidProperties[] = "'stack' can't be null";
         }
         $allowedValues = $this->getAxisAllowableValues();
         if (!in_array($this->container['axis'], $allowedValues)) {
@@ -1644,37 +1530,7 @@ class PlayerFull implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['link'] === null) {
-            return false;
-        }
-        if ($this->container['name'] === null) {
-            return false;
-        }
-        if ($this->container['online'] === null) {
-            return false;
-        }
-        if ($this->container['uuid'] === null) {
-            return false;
-        }
-        if ($this->container['unlocked_advancements'] === null) {
-            return false;
-        }
-        if ($this->container['latency'] === null) {
-            return false;
-        }
-        if ($this->container['rotation'] === null) {
-            return false;
-        }
-        if ($this->container['scale'] === null) {
-            return false;
-        }
-        if ($this->container['velocity'] === null) {
-            return false;
-        }
-        if ($this->container['address'] === null) {
-            return false;
-        }
-        if ($this->container['location'] === null) {
+        if ($this->container['stack'] === null) {
             return false;
         }
         $allowedValues = $this->getAxisAllowableValues();
@@ -1694,385 +1550,25 @@ class PlayerFull implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The players name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets online
-     *
-     * @return bool
-     */
-    public function getOnline()
-    {
-        return $this->container['online'];
-    }
-
-    /**
-     * Sets online
-     *
-     * @param bool $online True if the player is online, false otherwise
-     *
-     * @return $this
-     */
-    public function setOnline($online)
-    {
-        $this->container['online'] = $online;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
-     *
-     * @return string
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string $uuid The unique UUID of this player
-     *
-     * @return $this
-     */
-    public function setUuid($uuid)
-    {
-        $this->container['uuid'] = $uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets unlocked_advancements
-     *
-     * @return \Swagger\Client\Model\Advancement[]
-     */
-    public function getUnlockedAdvancements()
-    {
-        return $this->container['unlocked_advancements'];
-    }
-
-    /**
-     * Sets unlocked_advancements
-     *
-     * @param \Swagger\Client\Model\Advancement[] $unlocked_advancements A list of all unlocked advancements of this player
-     *
-     * @return $this
-     */
-    public function setUnlockedAdvancements($unlocked_advancements)
-    {
-        $this->container['unlocked_advancements'] = $unlocked_advancements;
-
-        return $this;
-    }
-
-    /**
-     * Gets latency
-     *
-     * @return int
-     */
-    public function getLatency()
-    {
-        return $this->container['latency'];
-    }
-
-    /**
-     * Sets latency
-     *
-     * @param int $latency The latency (in milliseconds) of the player
-     *
-     * @return $this
-     */
-    public function setLatency($latency)
-    {
-        $this->container['latency'] = $latency;
-
-        return $this;
-    }
-
-    /**
-     * Gets rotation
-     *
-     * @return \Swagger\Client\Model\Vector3d
-     */
-    public function getRotation()
-    {
-        return $this->container['rotation'];
-    }
-
-    /**
-     * Sets rotation
-     *
-     * @param \Swagger\Client\Model\Vector3d $rotation The current rotation of the player
-     *
-     * @return $this
-     */
-    public function setRotation($rotation)
-    {
-        $this->container['rotation'] = $rotation;
-
-        return $this;
-    }
-
-    /**
-     * Gets scale
-     *
-     * @return \Swagger\Client\Model\Vector3d
-     */
-    public function getScale()
-    {
-        return $this->container['scale'];
-    }
-
-    /**
-     * Sets scale
-     *
-     * @param \Swagger\Client\Model\Vector3d $scale The current scale of the player
-     *
-     * @return $this
-     */
-    public function setScale($scale)
-    {
-        $this->container['scale'] = $scale;
-
-        return $this;
-    }
-
-    /**
-     * Gets velocity
-     *
-     * @return \Swagger\Client\Model\Vector3d
-     */
-    public function getVelocity()
-    {
-        return $this->container['velocity'];
-    }
-
-    /**
-     * Sets velocity
-     *
-     * @param \Swagger\Client\Model\Vector3d $velocity The current velocity of the player
-     *
-     * @return $this
-     */
-    public function setVelocity($velocity)
-    {
-        $this->container['velocity'] = $velocity;
-
-        return $this;
-    }
-
-    /**
-     * Gets inventory
-     *
-     * @return \Swagger\Client\Model\Inventory
-     */
-    public function getInventory()
-    {
-        return $this->container['inventory'];
-    }
-
-    /**
-     * Sets inventory
-     *
-     * @param \Swagger\Client\Model\Inventory $inventory inventory
-     *
-     * @return $this
-     */
-    public function setInventory($inventory)
-    {
-        $this->container['inventory'] = $inventory;
-
-        return $this;
-    }
-
-    /**
-     * Gets helmet
+     * Gets stack
      *
      * @return \Swagger\Client\Model\ItemStack
      */
-    public function getHelmet()
+    public function getStack()
     {
-        return $this->container['helmet'];
+        return $this->container['stack'];
     }
 
     /**
-     * Sets helmet
+     * Sets stack
      *
-     * @param \Swagger\Client\Model\ItemStack $helmet The item stack that the player is wearing as a helmet
+     * @param \Swagger\Client\Model\ItemStack $stack The item stack that is in this slot
      *
      * @return $this
      */
-    public function setHelmet($helmet)
+    public function setStack($stack)
     {
-        $this->container['helmet'] = $helmet;
-
-        return $this;
-    }
-
-    /**
-     * Gets chestplate
-     *
-     * @return \Swagger\Client\Model\ItemStack
-     */
-    public function getChestplate()
-    {
-        return $this->container['chestplate'];
-    }
-
-    /**
-     * Sets chestplate
-     *
-     * @param \Swagger\Client\Model\ItemStack $chestplate The item stack that the player is wearing as chestplate
-     *
-     * @return $this
-     */
-    public function setChestplate($chestplate)
-    {
-        $this->container['chestplate'] = $chestplate;
-
-        return $this;
-    }
-
-    /**
-     * Gets leggings
-     *
-     * @return \Swagger\Client\Model\ItemStack
-     */
-    public function getLeggings()
-    {
-        return $this->container['leggings'];
-    }
-
-    /**
-     * Sets leggings
-     *
-     * @param \Swagger\Client\Model\ItemStack $leggings The item stack that the player is wearing as leggings
-     *
-     * @return $this
-     */
-    public function setLeggings($leggings)
-    {
-        $this->container['leggings'] = $leggings;
-
-        return $this;
-    }
-
-    /**
-     * Gets boots
-     *
-     * @return \Swagger\Client\Model\ItemStack
-     */
-    public function getBoots()
-    {
-        return $this->container['boots'];
-    }
-
-    /**
-     * Sets boots
-     *
-     * @param \Swagger\Client\Model\ItemStack $boots The item stack that the player is wearing as boots
-     *
-     * @return $this
-     */
-    public function setBoots($boots)
-    {
-        $this->container['boots'] = $boots;
-
-        return $this;
-    }
-
-    /**
-     * Gets address
-     *
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->container['address'];
-    }
-
-    /**
-     * Sets address
-     *
-     * @param string $address The player's IP address and port
-     *
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets location
-     *
-     * @return \Swagger\Client\Model\Location
-     */
-    public function getLocation()
-    {
-        return $this->container['location'];
-    }
-
-    /**
-     * Sets location
-     *
-     * @param \Swagger\Client\Model\Location $location The current Location of the player
-     *
-     * @return $this
-     */
-    public function setLocation($location)
-    {
-        $this->container['location'] = $location;
+        $this->container['stack'] = $stack;
 
         return $this;
     }
@@ -3972,6 +3468,30 @@ class PlayerFull implements ModelInterface, ArrayAccess
     public function setInWall($in_wall)
     {
         $this->container['in_wall'] = $in_wall;
+
+        return $this;
+    }
+
+    /**
+     * Gets inventory
+     *
+     * @return \Swagger\Client\Model\Inventory
+     */
+    public function getInventory()
+    {
+        return $this->container['inventory'];
+    }
+
+    /**
+     * Sets inventory
+     *
+     * @param \Swagger\Client\Model\Inventory $inventory inventory
+     *
+     * @return $this
+     */
+    public function setInventory($inventory)
+    {
+        $this->container['inventory'] = $inventory;
 
         return $this;
     }

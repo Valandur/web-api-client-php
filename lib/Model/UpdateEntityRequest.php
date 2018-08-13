@@ -58,7 +58,7 @@ class UpdateEntityRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'damage' => '\Swagger\Client\Model\DamageRequest',
-        'inventory' => '\Swagger\Client\Model\ItemStack[]',
+        'inventory' => '\Swagger\Client\Model\SlotRequest[]',
         'position' => '\Swagger\Client\Model\Vector3d',
         'rotation' => '\Swagger\Client\Model\Vector3d',
         'scale' => '\Swagger\Client\Model\Vector3d',
@@ -268,7 +268,7 @@ class UpdateEntityRequest implements ModelInterface, ArrayAccess
     /**
      * Gets inventory
      *
-     * @return \Swagger\Client\Model\ItemStack[]
+     * @return \Swagger\Client\Model\SlotRequest[]
      */
     public function getInventory()
     {
@@ -278,7 +278,7 @@ class UpdateEntityRequest implements ModelInterface, ArrayAccess
     /**
      * Sets inventory
      *
-     * @param \Swagger\Client\Model\ItemStack[] $inventory The ItemStacks in the inventory of the entity
+     * @param \Swagger\Client\Model\SlotRequest[] $inventory The slots in the inventory of the entity to modify
      *
      * @return $this
      */

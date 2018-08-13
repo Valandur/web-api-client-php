@@ -106,13 +106,6 @@ class CommandCallTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "link"
-     */
-    public function testPropertyLink()
-    {
-    }
-
-    /**
      * Test attribute "result"
      */
     public function testPropertyResult()

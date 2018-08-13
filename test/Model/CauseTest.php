@@ -90,11 +90,4 @@ class CauseTest extends \PHPUnit_Framework_TestCase
     public function testPropertyContext()
     {
     }
-
-    /**
-     * Test attribute "link"
-     */
-    public function testPropertyLink()
-    {
-    }
 }

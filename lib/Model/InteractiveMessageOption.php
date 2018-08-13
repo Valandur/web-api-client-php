@@ -198,9 +198,6 @@ class InteractiveMessageOption implements ModelInterface, ArrayAccess
         if ($this->container['key'] === null) {
             $invalidProperties[] = "'key' can't be null";
         }
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -214,9 +211,6 @@ class InteractiveMessageOption implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['key'] === null) {
-            return false;
-        }
-        if ($this->container['value'] === null) {
             return false;
         }
         return true;
@@ -236,7 +230,7 @@ class InteractiveMessageOption implements ModelInterface, ArrayAccess
     /**
      * Sets key
      *
-     * @param string $key The key of the option (this is sent to the webhook)
+     * @param string $key The key of the option (this is sent to the WebHook)
      *
      * @return $this
      */
@@ -260,7 +254,7 @@ class InteractiveMessageOption implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string $value The value of the option (this is displayed to the player)
+     * @param string $value value
      *
      * @return $this
      */

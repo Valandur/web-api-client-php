@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPlayer**
-> \Swagger\Client\Model\PlayerFull getPlayer($player, $details, $accept, $pretty)
+> \Swagger\Client\Model\Player getPlayer($player, $details, $accept, $pretty)
 
 Get a player
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PlayerFull**](../Model/PlayerFull.md)
+[**\Swagger\Client\Model\Player**](../Model/Player.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPlayers**
-> \Swagger\Client\Model\PlayerFull[] listPlayers($details, $accept, $pretty)
+> \Swagger\Client\Model\Player[] listPlayers($details, $accept, $pretty)
 
 List players
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PlayerFull[]**](../Model/PlayerFull.md)
+[**\Swagger\Client\Model\Player[]**](../Model/Player.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **modifyPlayer**
-> \Swagger\Client\Model\PlayerFull modifyPlayer($player, $body, $details, $accept, $pretty)
+> \Swagger\Client\Model\Player modifyPlayer($player, $body, $details, $accept, $pretty)
 
 Modify a player
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\PlayerFull**](../Model/PlayerFull.md)
+[**\Swagger\Client\Model\Player**](../Model/Player.md)
 
 ### Authorization
 

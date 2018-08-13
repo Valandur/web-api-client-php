@@ -59,6 +59,7 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'ban_reason' => 'string',
         'breaking_banned' => 'bool',
+        'craft_banned' => 'bool',
         'drop_banned' => 'bool',
         'item' => '\Swagger\Client\Model\CatalogTypeItemType',
         'link' => 'string',
@@ -76,6 +77,7 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'ban_reason' => null,
         'breaking_banned' => null,
+        'craft_banned' => null,
         'drop_banned' => null,
         'item' => null,
         'link' => null,
@@ -114,6 +116,7 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'ban_reason' => 'banReason',
         'breaking_banned' => 'breakingBanned',
+        'craft_banned' => 'craftBanned',
         'drop_banned' => 'dropBanned',
         'item' => 'item',
         'link' => 'link',
@@ -131,6 +134,7 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
     protected static $setters = [
         'ban_reason' => 'setBanReason',
         'breaking_banned' => 'setBreakingBanned',
+        'craft_banned' => 'setCraftBanned',
         'drop_banned' => 'setDropBanned',
         'item' => 'setItem',
         'link' => 'setLink',
@@ -148,6 +152,7 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
     protected static $getters = [
         'ban_reason' => 'getBanReason',
         'breaking_banned' => 'getBreakingBanned',
+        'craft_banned' => 'getCraftBanned',
         'drop_banned' => 'getDropBanned',
         'item' => 'getItem',
         'link' => 'getLink',
@@ -219,6 +224,7 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
     {
         $this->container['ban_reason'] = isset($data['ban_reason']) ? $data['ban_reason'] : null;
         $this->container['breaking_banned'] = isset($data['breaking_banned']) ? $data['breaking_banned'] : null;
+        $this->container['craft_banned'] = isset($data['craft_banned']) ? $data['craft_banned'] : null;
         $this->container['drop_banned'] = isset($data['drop_banned']) ? $data['drop_banned'] : null;
         $this->container['item'] = isset($data['item']) ? $data['item'] : null;
         $this->container['link'] = isset($data['link']) ? $data['link'] : null;
@@ -242,6 +248,9 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
         }
         if ($this->container['breaking_banned'] === null) {
             $invalidProperties[] = "'breaking_banned' can't be null";
+        }
+        if ($this->container['craft_banned'] === null) {
+            $invalidProperties[] = "'craft_banned' can't be null";
         }
         if ($this->container['drop_banned'] === null) {
             $invalidProperties[] = "'drop_banned' can't be null";
@@ -280,6 +289,9 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['breaking_banned'] === null) {
+            return false;
+        }
+        if ($this->container['craft_banned'] === null) {
             return false;
         }
         if ($this->container['drop_banned'] === null) {
@@ -351,6 +363,30 @@ class MMCRestrictItem implements ModelInterface, ArrayAccess
     public function setBreakingBanned($breaking_banned)
     {
         $this->container['breaking_banned'] = $breaking_banned;
+
+        return $this;
+    }
+
+    /**
+     * Gets craft_banned
+     *
+     * @return bool
+     */
+    public function getCraftBanned()
+    {
+        return $this->container['craft_banned'];
+    }
+
+    /**
+     * Sets craft_banned
+     *
+     * @param bool $craft_banned True if crafting this item is banned, false otherwise
+     *
+     * @return $this
+     */
+    public function setCraftBanned($craft_banned)
+    {
+        $this->container['craft_banned'] = $craft_banned;
 
         return $this;
     }

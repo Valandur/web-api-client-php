@@ -58,11 +58,10 @@ class Inventory implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'capacity' => 'int',
-        'item_stacks' => '\Swagger\Client\Model\ItemStack[]',
-        'link' => 'string',
         'name' => 'string',
+        'slots' => '\Swagger\Client\Model\Slot[]',
         'total_items' => 'int',
-        'type' => '\Swagger\Client\Model\CatalogType'
+        'type' => '\Swagger\Client\Model\CatalogTypeInventoryArchetype'
     ];
 
     /**
@@ -72,9 +71,8 @@ class Inventory implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'capacity' => 'int32',
-        'item_stacks' => null,
-        'link' => null,
         'name' => null,
+        'slots' => null,
         'total_items' => 'int32',
         'type' => null
     ];
@@ -107,9 +105,8 @@ class Inventory implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'capacity' => 'capacity',
-        'item_stacks' => 'itemStacks',
-        'link' => 'link',
         'name' => 'name',
+        'slots' => 'slots',
         'total_items' => 'totalItems',
         'type' => 'type'
     ];
@@ -121,9 +118,8 @@ class Inventory implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'capacity' => 'setCapacity',
-        'item_stacks' => 'setItemStacks',
-        'link' => 'setLink',
         'name' => 'setName',
+        'slots' => 'setSlots',
         'total_items' => 'setTotalItems',
         'type' => 'setType'
     ];
@@ -135,9 +131,8 @@ class Inventory implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'capacity' => 'getCapacity',
-        'item_stacks' => 'getItemStacks',
-        'link' => 'getLink',
         'name' => 'getName',
+        'slots' => 'getSlots',
         'total_items' => 'getTotalItems',
         'type' => 'getType'
     ];
@@ -203,9 +198,8 @@ class Inventory implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
-        $this->container['item_stacks'] = isset($data['item_stacks']) ? $data['item_stacks'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['slots'] = isset($data['slots']) ? $data['slots'] : null;
         $this->container['total_items'] = isset($data['total_items']) ? $data['total_items'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -222,14 +216,11 @@ class Inventory implements ModelInterface, ArrayAccess
         if ($this->container['capacity'] === null) {
             $invalidProperties[] = "'capacity' can't be null";
         }
-        if ($this->container['item_stacks'] === null) {
-            $invalidProperties[] = "'item_stacks' can't be null";
-        }
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['slots'] === null) {
+            $invalidProperties[] = "'slots' can't be null";
         }
         if ($this->container['total_items'] === null) {
             $invalidProperties[] = "'total_items' can't be null";
@@ -252,13 +243,10 @@ class Inventory implements ModelInterface, ArrayAccess
         if ($this->container['capacity'] === null) {
             return false;
         }
-        if ($this->container['item_stacks'] === null) {
-            return false;
-        }
-        if ($this->container['link'] === null) {
-            return false;
-        }
         if ($this->container['name'] === null) {
+            return false;
+        }
+        if ($this->container['slots'] === null) {
             return false;
         }
         if ($this->container['total_items'] === null) {
@@ -296,54 +284,6 @@ class Inventory implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets item_stacks
-     *
-     * @return \Swagger\Client\Model\ItemStack[]
-     */
-    public function getItemStacks()
-    {
-        return $this->container['item_stacks'];
-    }
-
-    /**
-     * Sets item_stacks
-     *
-     * @param \Swagger\Client\Model\ItemStack[] $item_stacks Gets a list of item stacks in the inventory
-     *
-     * @return $this
-     */
-    public function setItemStacks($item_stacks)
-    {
-        $this->container['item_stacks'] = $item_stacks;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -363,6 +303,30 @@ class Inventory implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets slots
+     *
+     * @return \Swagger\Client\Model\Slot[]
+     */
+    public function getSlots()
+    {
+        return $this->container['slots'];
+    }
+
+    /**
+     * Sets slots
+     *
+     * @param \Swagger\Client\Model\Slot[] $slots Gets a list of slots in the inventory (with their items)
+     *
+     * @return $this
+     */
+    public function setSlots($slots)
+    {
+        $this->container['slots'] = $slots;
 
         return $this;
     }
@@ -394,7 +358,7 @@ class Inventory implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \Swagger\Client\Model\CatalogType
+     * @return \Swagger\Client\Model\CatalogTypeInventoryArchetype
      */
     public function getType()
     {
@@ -404,7 +368,7 @@ class Inventory implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \Swagger\Client\Model\CatalogType $type The type of the inventory
+     * @param \Swagger\Client\Model\CatalogTypeInventoryArchetype $type The type of the inventory
      *
      * @return $this
      */

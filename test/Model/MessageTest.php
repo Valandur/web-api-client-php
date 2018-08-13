@@ -85,13 +85,6 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "link"
-     */
-    public function testPropertyLink()
-    {
-    }
-
-    /**
      * Test attribute "receivers"
      */
     public function testPropertyReceivers()

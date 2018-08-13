@@ -78,13 +78,6 @@ class CommandResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "link"
-     */
-    public function testPropertyLink()
-    {
-    }
-
-    /**
      * Test attribute "affected_blocks"
      */
     public function testPropertyAffectedBlocks()

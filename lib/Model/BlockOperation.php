@@ -42,7 +42,7 @@ use \Swagger\Client\ObjectSerializer;
  */
 class BlockOperation implements ModelInterface, ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -58,7 +58,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'error' => 'string',
-        'errored' => 'bool',
         'estimated_seconds_remaining' => 'float',
         'link' => 'string',
         'max' => '\Swagger\Client\Model\Vector3i',
@@ -77,7 +76,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'error' => null,
-        'errored' => null,
         'estimated_seconds_remaining' => 'float',
         'link' => null,
         'max' => null,
@@ -117,7 +115,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'error' => 'error',
-        'errored' => 'errored',
         'estimated_seconds_remaining' => 'estimatedSecondsRemaining',
         'link' => 'link',
         'max' => 'max',
@@ -136,7 +133,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'error' => 'setError',
-        'errored' => 'setErrored',
         'estimated_seconds_remaining' => 'setEstimatedSecondsRemaining',
         'link' => 'setLink',
         'max' => 'setMax',
@@ -155,7 +151,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'error' => 'getError',
-        'errored' => 'getErrored',
         'estimated_seconds_remaining' => 'getEstimatedSecondsRemaining',
         'link' => 'getLink',
         'max' => 'getMax',
@@ -266,7 +261,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['errored'] = isset($data['errored']) ? $data['errored'] : null;
         $this->container['estimated_seconds_remaining'] = isset($data['estimated_seconds_remaining']) ? $data['estimated_seconds_remaining'] : null;
         $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['max'] = isset($data['max']) ? $data['max'] : null;
@@ -276,6 +270,10 @@ class BlockOperation implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['world'] = isset($data['world']) ? $data['world'] : null;
+
+        // Initialize discriminator property with the model name.
+        $discriminator = array_search('type', self::$attributeMap);
+        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**
@@ -289,9 +287,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
 
         if ($this->container['error'] === null) {
             $invalidProperties[] = "'error' can't be null";
-        }
-        if ($this->container['errored'] === null) {
-            $invalidProperties[] = "'errored' can't be null";
         }
         if ($this->container['estimated_seconds_remaining'] === null) {
             $invalidProperties[] = "'estimated_seconds_remaining' can't be null";
@@ -349,9 +344,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['error'] === null) {
-            return false;
-        }
-        if ($this->container['errored'] === null) {
             return false;
         }
         if ($this->container['estimated_seconds_remaining'] === null) {
@@ -413,30 +405,6 @@ class BlockOperation implements ModelInterface, ArrayAccess
     public function setError($error)
     {
         $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets errored
-     *
-     * @return bool
-     */
-    public function getErrored()
-    {
-        return $this->container['errored'];
-    }
-
-    /**
-     * Sets errored
-     *
-     * @param bool $errored True if this block operation produced errors, false otherwise.
-     *
-     * @return $this
-     */
-    public function setErrored($errored)
-    {
-        $this->container['errored'] = $errored;
 
         return $this;
     }
