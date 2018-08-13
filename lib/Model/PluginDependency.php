@@ -58,7 +58,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'string',
-        'link' => 'string',
         'load_order' => 'string',
         'optional' => 'bool',
         'version' => 'string'
@@ -71,7 +70,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
-        'link' => null,
         'load_order' => null,
         'optional' => null,
         'version' => null
@@ -105,7 +103,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'link' => 'link',
         'load_order' => 'loadOrder',
         'optional' => 'optional',
         'version' => 'version'
@@ -118,7 +115,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'link' => 'setLink',
         'load_order' => 'setLoadOrder',
         'optional' => 'setOptional',
         'version' => 'setVersion'
@@ -131,7 +127,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'link' => 'getLink',
         'load_order' => 'getLoadOrder',
         'optional' => 'getOptional',
         'version' => 'getVersion'
@@ -215,7 +210,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['load_order'] = isset($data['load_order']) ? $data['load_order'] : null;
         $this->container['optional'] = isset($data['optional']) ? $data['optional'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
@@ -232,9 +226,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
         }
         if ($this->container['load_order'] === null) {
             $invalidProperties[] = "'load_order' can't be null";
@@ -266,9 +257,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['id'] === null) {
-            return false;
-        }
-        if ($this->container['link'] === null) {
             return false;
         }
         if ($this->container['load_order'] === null) {
@@ -308,30 +296,6 @@ class PluginDependency implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
 
         return $this;
     }

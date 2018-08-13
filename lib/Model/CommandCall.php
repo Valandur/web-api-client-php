@@ -61,7 +61,6 @@ class CommandCall implements ModelInterface, ArrayAccess
         'cancelled' => 'bool',
         'cause' => '\Swagger\Client\Model\Cause',
         'command' => 'string',
-        'link' => 'string',
         'result' => '\Swagger\Client\Model\CommandResult',
         'timestamp' => 'int'
     ];
@@ -76,7 +75,6 @@ class CommandCall implements ModelInterface, ArrayAccess
         'cancelled' => null,
         'cause' => null,
         'command' => null,
-        'link' => null,
         'result' => null,
         'timestamp' => 'int64'
     ];
@@ -112,7 +110,6 @@ class CommandCall implements ModelInterface, ArrayAccess
         'cancelled' => 'cancelled',
         'cause' => 'cause',
         'command' => 'command',
-        'link' => 'link',
         'result' => 'result',
         'timestamp' => 'timestamp'
     ];
@@ -127,7 +124,6 @@ class CommandCall implements ModelInterface, ArrayAccess
         'cancelled' => 'setCancelled',
         'cause' => 'setCause',
         'command' => 'setCommand',
-        'link' => 'setLink',
         'result' => 'setResult',
         'timestamp' => 'setTimestamp'
     ];
@@ -142,7 +138,6 @@ class CommandCall implements ModelInterface, ArrayAccess
         'cancelled' => 'getCancelled',
         'cause' => 'getCause',
         'command' => 'getCommand',
-        'link' => 'getLink',
         'result' => 'getResult',
         'timestamp' => 'getTimestamp'
     ];
@@ -211,7 +206,6 @@ class CommandCall implements ModelInterface, ArrayAccess
         $this->container['cancelled'] = isset($data['cancelled']) ? $data['cancelled'] : null;
         $this->container['cause'] = isset($data['cause']) ? $data['cause'] : null;
         $this->container['command'] = isset($data['command']) ? $data['command'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['result'] = isset($data['result']) ? $data['result'] : null;
         $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
     }
@@ -236,9 +230,6 @@ class CommandCall implements ModelInterface, ArrayAccess
         }
         if ($this->container['command'] === null) {
             $invalidProperties[] = "'command' can't be null";
-        }
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
         }
         if ($this->container['result'] === null) {
             $invalidProperties[] = "'result' can't be null";
@@ -268,9 +259,6 @@ class CommandCall implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['command'] === null) {
-            return false;
-        }
-        if ($this->container['link'] === null) {
             return false;
         }
         if ($this->container['result'] === null) {
@@ -375,30 +363,6 @@ class CommandCall implements ModelInterface, ArrayAccess
     public function setCommand($command)
     {
         $this->container['command'] = $command;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
 
         return $this;
     }

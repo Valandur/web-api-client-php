@@ -85,23 +85,16 @@ class InventoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "item_stacks"
-     */
-    public function testPropertyItemStacks()
-    {
-    }
-
-    /**
-     * Test attribute "link"
-     */
-    public function testPropertyLink()
-    {
-    }
-
-    /**
      * Test attribute "name"
      */
     public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "slots"
+     */
+    public function testPropertySlots()
     {
     }
 

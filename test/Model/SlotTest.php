@@ -1,6 +1,6 @@
 <?php
 /**
- * PlayerFullTest
+ * SlotTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * PlayerFullTest Class Doc Comment
+ * SlotTest Class Doc Comment
  *
  * @category    Class */
-// * @description PlayerFull
+// * @description Slot
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PlayerFullTest extends \PHPUnit_Framework_TestCase
+class SlotTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,121 +71,16 @@ class PlayerFullTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "PlayerFull"
+     * Test "Slot"
      */
-    public function testPlayerFull()
+    public function testSlot()
     {
     }
 
     /**
-     * Test attribute "link"
+     * Test attribute "stack"
      */
-    public function testPropertyLink()
-    {
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "online"
-     */
-    public function testPropertyOnline()
-    {
-    }
-
-    /**
-     * Test attribute "uuid"
-     */
-    public function testPropertyUuid()
-    {
-    }
-
-    /**
-     * Test attribute "unlocked_advancements"
-     */
-    public function testPropertyUnlockedAdvancements()
-    {
-    }
-
-    /**
-     * Test attribute "latency"
-     */
-    public function testPropertyLatency()
-    {
-    }
-
-    /**
-     * Test attribute "rotation"
-     */
-    public function testPropertyRotation()
-    {
-    }
-
-    /**
-     * Test attribute "scale"
-     */
-    public function testPropertyScale()
-    {
-    }
-
-    /**
-     * Test attribute "velocity"
-     */
-    public function testPropertyVelocity()
-    {
-    }
-
-    /**
-     * Test attribute "inventory"
-     */
-    public function testPropertyInventory()
-    {
-    }
-
-    /**
-     * Test attribute "helmet"
-     */
-    public function testPropertyHelmet()
-    {
-    }
-
-    /**
-     * Test attribute "chestplate"
-     */
-    public function testPropertyChestplate()
-    {
-    }
-
-    /**
-     * Test attribute "leggings"
-     */
-    public function testPropertyLeggings()
-    {
-    }
-
-    /**
-     * Test attribute "boots"
-     */
-    public function testPropertyBoots()
-    {
-    }
-
-    /**
-     * Test attribute "address"
-     */
-    public function testPropertyAddress()
-    {
-    }
-
-    /**
-     * Test attribute "location"
-     */
-    public function testPropertyLocation()
+    public function testPropertyStack()
     {
     }
 
@@ -732,6 +627,13 @@ class PlayerFullTest extends \PHPUnit_Framework_TestCase
      * Test attribute "in_wall"
      */
     public function testPropertyInWall()
+    {
+    }
+
+    /**
+     * Test attribute "inventory"
+     */
+    public function testPropertyInventory()
     {
     }
 

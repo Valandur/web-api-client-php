@@ -106,6 +106,13 @@ class UpdatePlayerRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "game_mode"
+     */
+    public function testPropertyGameMode()
+    {
+    }
+
+    /**
      * Test attribute "health"
      */
     public function testPropertyHealth()

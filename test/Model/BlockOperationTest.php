@@ -85,13 +85,6 @@ class BlockOperationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "errored"
-     */
-    public function testPropertyErrored()
-    {
-    }
-
-    /**
      * Test attribute "estimated_seconds_remaining"
      */
     public function testPropertyEstimatedSecondsRemaining()

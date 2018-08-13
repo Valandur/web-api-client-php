@@ -61,7 +61,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
         'damage_amount' => 'double',
         'damage_threshold' => 'double',
         'diameter' => 'double',
-        'link' => 'string',
         'new_diameter' => 'double',
         'time_remaining' => 'int',
         'warning_distance' => 'int',
@@ -78,7 +77,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
         'damage_amount' => 'double',
         'damage_threshold' => 'double',
         'diameter' => 'double',
-        'link' => null,
         'new_diameter' => 'double',
         'time_remaining' => 'int64',
         'warning_distance' => 'int32',
@@ -116,7 +114,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
         'damage_amount' => 'damageAmount',
         'damage_threshold' => 'damageThreshold',
         'diameter' => 'diameter',
-        'link' => 'link',
         'new_diameter' => 'newDiameter',
         'time_remaining' => 'timeRemaining',
         'warning_distance' => 'warningDistance',
@@ -133,7 +130,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
         'damage_amount' => 'setDamageAmount',
         'damage_threshold' => 'setDamageThreshold',
         'diameter' => 'setDiameter',
-        'link' => 'setLink',
         'new_diameter' => 'setNewDiameter',
         'time_remaining' => 'setTimeRemaining',
         'warning_distance' => 'setWarningDistance',
@@ -150,7 +146,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
         'damage_amount' => 'getDamageAmount',
         'damage_threshold' => 'getDamageThreshold',
         'diameter' => 'getDiameter',
-        'link' => 'getLink',
         'new_diameter' => 'getNewDiameter',
         'time_remaining' => 'getTimeRemaining',
         'warning_distance' => 'getWarningDistance',
@@ -221,7 +216,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
         $this->container['damage_amount'] = isset($data['damage_amount']) ? $data['damage_amount'] : null;
         $this->container['damage_threshold'] = isset($data['damage_threshold']) ? $data['damage_threshold'] : null;
         $this->container['diameter'] = isset($data['diameter']) ? $data['diameter'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['new_diameter'] = isset($data['new_diameter']) ? $data['new_diameter'] : null;
         $this->container['time_remaining'] = isset($data['time_remaining']) ? $data['time_remaining'] : null;
         $this->container['warning_distance'] = isset($data['warning_distance']) ? $data['warning_distance'] : null;
@@ -248,9 +242,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
         }
         if ($this->container['diameter'] === null) {
             $invalidProperties[] = "'diameter' can't be null";
-        }
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
         }
         if ($this->container['new_diameter'] === null) {
             $invalidProperties[] = "'new_diameter' can't be null";
@@ -286,9 +277,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['diameter'] === null) {
-            return false;
-        }
-        if ($this->container['link'] === null) {
             return false;
         }
         if ($this->container['new_diameter'] === null) {
@@ -399,30 +387,6 @@ class WorldBorder implements ModelInterface, ArrayAccess
     public function setDiameter($diameter)
     {
         $this->container['diameter'] = $diameter;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
 
         return $this;
     }

@@ -100,4 +100,14 @@ class TileEntityApiTest extends \PHPUnit_Framework_TestCase
     public function testListTileEntities()
     {
     }
+
+    /**
+     * Test case for modifyTileEntity
+     *
+     * Modify tile entity.
+     *
+     */
+    public function testModifyTileEntity()
+    {
+    }
 }

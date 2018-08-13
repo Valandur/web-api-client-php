@@ -58,8 +58,7 @@ class Cause implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'causes' => 'object[]',
-        'context' => 'map[string,object]',
-        'link' => 'string'
+        'context' => 'map[string,object]'
     ];
 
     /**
@@ -69,8 +68,7 @@ class Cause implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'causes' => null,
-        'context' => null,
-        'link' => null
+        'context' => null
     ];
 
     /**
@@ -101,8 +99,7 @@ class Cause implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'causes' => 'causes',
-        'context' => 'context',
-        'link' => 'link'
+        'context' => 'context'
     ];
 
     /**
@@ -112,8 +109,7 @@ class Cause implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'causes' => 'setCauses',
-        'context' => 'setContext',
-        'link' => 'setLink'
+        'context' => 'setContext'
     ];
 
     /**
@@ -123,8 +119,7 @@ class Cause implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'causes' => 'getCauses',
-        'context' => 'getContext',
-        'link' => 'getLink'
+        'context' => 'getContext'
     ];
 
     /**
@@ -189,7 +184,6 @@ class Cause implements ModelInterface, ArrayAccess
     {
         $this->container['causes'] = isset($data['causes']) ? $data['causes'] : null;
         $this->container['context'] = isset($data['context']) ? $data['context'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
     }
 
     /**
@@ -207,9 +201,6 @@ class Cause implements ModelInterface, ArrayAccess
         if ($this->container['context'] === null) {
             $invalidProperties[] = "'context' can't be null";
         }
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -226,9 +217,6 @@ class Cause implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['context'] === null) {
-            return false;
-        }
-        if ($this->container['link'] === null) {
             return false;
         }
         return true;
@@ -279,30 +267,6 @@ class Cause implements ModelInterface, ArrayAccess
     public function setContext($context)
     {
         $this->container['context'] = $context;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
 
         return $this;
     }

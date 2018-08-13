@@ -65,7 +65,7 @@ class MMCTicketsTicket implements ModelInterface, ArrayAccess
         'comment' => 'string',
         'location' => '\Swagger\Client\Model\Location',
         'notified' => 'int',
-        'sender' => '\Swagger\Client\Model\PlayerFull',
+        'sender' => '\Swagger\Client\Model\Player',
         'staff' => '\Swagger\Client\Model\Player'
     ];
 
@@ -524,7 +524,7 @@ class MMCTicketsTicket implements ModelInterface, ArrayAccess
     /**
      * Gets sender
      *
-     * @return \Swagger\Client\Model\PlayerFull
+     * @return \Swagger\Client\Model\Player
      */
     public function getSender()
     {
@@ -534,7 +534,7 @@ class MMCTicketsTicket implements ModelInterface, ArrayAccess
     /**
      * Sets sender
      *
-     * @param \Swagger\Client\Model\PlayerFull $sender The sender of this ticket
+     * @param \Swagger\Client\Model\Player $sender The sender of this ticket
      *
      * @return $this
      */

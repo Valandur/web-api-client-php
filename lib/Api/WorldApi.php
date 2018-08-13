@@ -94,7 +94,7 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\WorldFull
+     * @return \Swagger\Client\Model\World
      */
     public function createWorld($body = null, $details = null, $accept = null, $pretty = null)
     {
@@ -114,11 +114,11 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\WorldFull, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\World, HTTP status code, HTTP response headers (array of strings)
      */
     public function createWorldWithHttpInfo($body = null, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->createWorldRequest($body, $details, $accept, $pretty);
 
         try {
@@ -170,7 +170,7 @@ class WorldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\WorldFull',
+                        '\Swagger\Client\Model\World',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -250,7 +250,7 @@ class WorldApi
      */
     public function createWorldAsyncWithHttpInfo($body = null, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->createWorldRequest($body, $details, $accept, $pretty);
 
         return $this->client
@@ -414,7 +414,7 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\WorldFull
+     * @return \Swagger\Client\Model\World
      */
     public function deleteWorld($world, $details = null, $accept = null, $pretty = null)
     {
@@ -434,11 +434,11 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\WorldFull, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\World, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWorldWithHttpInfo($world, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->deleteWorldRequest($world, $details, $accept, $pretty);
 
         try {
@@ -490,7 +490,7 @@ class WorldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\WorldFull',
+                        '\Swagger\Client\Model\World',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -562,7 +562,7 @@ class WorldApi
      */
     public function deleteWorldAsyncWithHttpInfo($world, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->deleteWorldRequest($world, $details, $accept, $pretty);
 
         return $this->client
@@ -1076,7 +1076,7 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\WorldFull
+     * @return \Swagger\Client\Model\World
      */
     public function getWorld($world, $details = null, $accept = null, $pretty = null)
     {
@@ -1096,11 +1096,11 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\WorldFull, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\World, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWorldWithHttpInfo($world, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->getWorldRequest($world, $details, $accept, $pretty);
 
         try {
@@ -1152,7 +1152,7 @@ class WorldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\WorldFull',
+                        '\Swagger\Client\Model\World',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1224,7 +1224,7 @@ class WorldApi
      */
     public function getWorldAsyncWithHttpInfo($world, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->getWorldRequest($world, $details, $accept, $pretty);
 
         return $this->client
@@ -1398,7 +1398,7 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\WorldFull[]
+     * @return \Swagger\Client\Model\World[]
      */
     public function listWorlds($details = null, $accept = null, $pretty = null)
     {
@@ -1417,11 +1417,11 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\WorldFull[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\World[], HTTP status code, HTTP response headers (array of strings)
      */
     public function listWorldsWithHttpInfo($details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull[]';
+        $returnType = '\Swagger\Client\Model\World[]';
         $request = $this->listWorldsRequest($details, $accept, $pretty);
 
         try {
@@ -1473,7 +1473,7 @@ class WorldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\WorldFull[]',
+                        '\Swagger\Client\Model\World[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1543,7 +1543,7 @@ class WorldApi
      */
     public function listWorldsAsyncWithHttpInfo($details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull[]';
+        $returnType = '\Swagger\Client\Model\World[]';
         $request = $this->listWorldsRequest($details, $accept, $pretty);
 
         return $this->client
@@ -1704,7 +1704,7 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\WorldFull
+     * @return \Swagger\Client\Model\World
      */
     public function modifyWorld($world, $body = null, $details = null, $accept = null, $pretty = null)
     {
@@ -1725,11 +1725,11 @@ class WorldApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\WorldFull, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\World, HTTP status code, HTTP response headers (array of strings)
      */
     public function modifyWorldWithHttpInfo($world, $body = null, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->modifyWorldRequest($world, $body, $details, $accept, $pretty);
 
         try {
@@ -1781,7 +1781,7 @@ class WorldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\WorldFull',
+                        '\Swagger\Client\Model\World',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1855,7 +1855,7 @@ class WorldApi
      */
     public function modifyWorldAsyncWithHttpInfo($world, $body = null, $details = null, $accept = null, $pretty = null)
     {
-        $returnType = '\Swagger\Client\Model\WorldFull';
+        $returnType = '\Swagger\Client\Model\World';
         $request = $this->modifyWorldRequest($world, $body, $details, $accept, $pretty);
 
         return $this->client

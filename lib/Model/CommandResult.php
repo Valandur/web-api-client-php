@@ -57,7 +57,6 @@ class CommandResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'link' => 'string',
         'affected_blocks' => 'int',
         'affected_entities' => 'int',
         'affected_items' => 'int',
@@ -71,7 +70,6 @@ class CommandResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'link' => null,
         'affected_blocks' => 'int32',
         'affected_entities' => 'int32',
         'affected_items' => 'int32',
@@ -106,7 +104,6 @@ class CommandResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'link' => 'link',
         'affected_blocks' => 'affectedBlocks',
         'affected_entities' => 'affectedEntities',
         'affected_items' => 'affectedItems',
@@ -120,7 +117,6 @@ class CommandResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'link' => 'setLink',
         'affected_blocks' => 'setAffectedBlocks',
         'affected_entities' => 'setAffectedEntities',
         'affected_items' => 'setAffectedItems',
@@ -134,7 +130,6 @@ class CommandResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'link' => 'getLink',
         'affected_blocks' => 'getAffectedBlocks',
         'affected_entities' => 'getAffectedEntities',
         'affected_items' => 'getAffectedItems',
@@ -202,7 +197,6 @@ class CommandResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['affected_blocks'] = isset($data['affected_blocks']) ? $data['affected_blocks'] : null;
         $this->container['affected_entities'] = isset($data['affected_entities']) ? $data['affected_entities'] : null;
         $this->container['affected_items'] = isset($data['affected_items']) ? $data['affected_items'] : null;
@@ -219,9 +213,6 @@ class CommandResult implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -234,36 +225,9 @@ class CommandResult implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['link'] === null) {
-            return false;
-        }
         return true;
     }
 
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
-
-        return $this;
-    }
 
     /**
      * Gets affected_blocks

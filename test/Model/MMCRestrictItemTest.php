@@ -92,6 +92,13 @@ class MMCRestrictItemTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "craft_banned"
+     */
+    public function testPropertyCraftBanned()
+    {
+    }
+
+    /**
      * Test attribute "drop_banned"
      */
     public function testPropertyDropBanned()

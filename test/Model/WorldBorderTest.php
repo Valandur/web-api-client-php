@@ -106,13 +106,6 @@ class WorldBorderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "link"
-     */
-    public function testPropertyLink()
-    {
-    }
-
-    /**
      * Test attribute "new_diameter"
      */
     public function testPropertyNewDiameter()

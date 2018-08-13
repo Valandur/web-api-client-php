@@ -58,7 +58,6 @@ class Message implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'content' => 'string',
-        'link' => 'string',
         'receivers' => 'object[]',
         'timestamp' => 'int'
     ];
@@ -70,7 +69,6 @@ class Message implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'content' => null,
-        'link' => null,
         'receivers' => null,
         'timestamp' => 'int64'
     ];
@@ -103,7 +101,6 @@ class Message implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'content' => 'content',
-        'link' => 'link',
         'receivers' => 'receivers',
         'timestamp' => 'timestamp'
     ];
@@ -115,7 +112,6 @@ class Message implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'content' => 'setContent',
-        'link' => 'setLink',
         'receivers' => 'setReceivers',
         'timestamp' => 'setTimestamp'
     ];
@@ -127,7 +123,6 @@ class Message implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'content' => 'getContent',
-        'link' => 'getLink',
         'receivers' => 'getReceivers',
         'timestamp' => 'getTimestamp'
     ];
@@ -193,7 +188,6 @@ class Message implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
-        $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['receivers'] = isset($data['receivers']) ? $data['receivers'] : null;
         $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
     }
@@ -209,9 +203,6 @@ class Message implements ModelInterface, ArrayAccess
 
         if ($this->container['content'] === null) {
             $invalidProperties[] = "'content' can't be null";
-        }
-        if ($this->container['link'] === null) {
-            $invalidProperties[] = "'link' can't be null";
         }
         if ($this->container['receivers'] === null) {
             $invalidProperties[] = "'receivers' can't be null";
@@ -232,9 +223,6 @@ class Message implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['content'] === null) {
-            return false;
-        }
-        if ($this->container['link'] === null) {
             return false;
         }
         if ($this->container['receivers'] === null) {
@@ -267,30 +255,6 @@ class Message implements ModelInterface, ArrayAccess
     public function setContent($content)
     {
         $this->container['content'] = $content;
-
-        return $this;
-    }
-
-    /**
-     * Gets link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->container['link'];
-    }
-
-    /**
-     * Sets link
-     *
-     * @param string $link The API link that can be used to obtain more information about this object
-     *
-     * @return $this
-     */
-    public function setLink($link)
-    {
-        $this->container['link'] = $link;
 
         return $this;
     }
