@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**command** | **string** | The command that is executed | [optional] 
+**commands** | **string[]** | The list of commands that are executed | [optional] 
 **name** | **string** | The name of this task | [optional] 
 **schedule** | [**\Swagger\Client\Model\Schedule**](Schedule.md) | The command that is executed | [optional] 
 
